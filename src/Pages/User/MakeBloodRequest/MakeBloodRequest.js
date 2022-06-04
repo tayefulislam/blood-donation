@@ -1,5 +1,6 @@
 import React from 'react';
 import { format, parseISO } from 'date-fns';
+import axios from 'axios';
 
 
 const MakeBloodRequest = () => {
@@ -38,9 +39,20 @@ const MakeBloodRequest = () => {
         const district = event.target.district.value;
         const area = event.target.area.value;
 
+
+        // new blood request 
         const bloodRequest = { patient, medical, number, unit, group, date: stringDate, time: time, type, district, area }
 
         console.log(bloodRequest)
+
+        const url = `http://localhost:5000/bloodRequest`
+
+        axios.post(url, bloodRequest)
+            .then(function (response) {
+
+                console.log(response)
+
+            })
 
     }
     return (
