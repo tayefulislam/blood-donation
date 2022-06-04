@@ -7,6 +7,7 @@ import Header from './Pages/Shared/Header/Header';
 import MakeBloodRequest from './Pages/User/MakeBloodRequest/MakeBloodRequest';
 import { Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home/Home';
+import Register from './Pages/Register/Register';
 
 function App() {
   return (
@@ -20,6 +21,8 @@ function App() {
 
         <Route path='/makeRequests' element={<MakeBloodRequest></MakeBloodRequest>}></Route>
       </Routes>
+
+      <Register></Register>
 
 
 

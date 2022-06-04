@@ -1,6 +1,15 @@
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../firebase.init';
+
+
 
 const Header = () => {
+
+    const [user, loading, error] = useAuthState(auth);
+
+    console.log(user)
+
     return (
         <div class="navbar bg-base-100">
             <div class="navbar-start">
