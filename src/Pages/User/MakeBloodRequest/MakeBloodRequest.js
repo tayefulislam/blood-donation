@@ -1,6 +1,7 @@
 import React from 'react';
 import { format, parseISO } from 'date-fns';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 
 const MakeBloodRequest = () => {
@@ -51,6 +52,11 @@ const MakeBloodRequest = () => {
             .then(function (response) {
 
                 console.log(response)
+
+                if (response.data.insertedId) {
+                    toast.success(`Your Request for ${type} successfully placed`)
+                    event.target.reset()
+                }
 
             })
 
