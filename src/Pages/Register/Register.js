@@ -23,7 +23,23 @@ const Register = () => {
         await createUserWithEmailAndPassword(email, password)
         await updateProfile({ displayName: name })
 
-        console.log(password, name, email)
+
+        const user = { email }
+
+        const url = `http://localhost:5000/createDonor`
+
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(user)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+            })
+
 
 
 
