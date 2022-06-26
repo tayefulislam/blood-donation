@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { useQuery } from 'react-query';
 import Loading from '../../Shared/Loading/Loading';
+import RequestDetails from '../RequestDetails/RequestDetails';
 
 
 
@@ -24,7 +25,7 @@ const MatchBooldRequest = () => {
 
     console.log(urlquery)
 
-    const { isLoading: loadingQuery, data: request, refetch: reload } = useQuery(`${user?.email}requets`, () => fetch(urlquery).then(res => res.json()))
+    const { isLoading: loadingQuery, data: requests, refetch: reload } = useQuery(`${user?.email}requets`, () => fetch(urlquery).then(res => res.json()))
 
     if (loading || isLoading) {
         return <Loading></Loading>
@@ -34,12 +35,25 @@ const MatchBooldRequest = () => {
 
     console.log(data)
 
-    console.log(request)
+    console.log(requests)
 
 
 
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-3'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+
+
+            {
+
+                requests?.map((request, index) => <RequestDetails
+
+                    request={request}
+                    key={index}
+
+                ></RequestDetails>)
+
+
+            }
 
 
 
