@@ -10,6 +10,7 @@ import Home from './Pages/Home/Home';
 import Register from './Pages/Register/Register';
 import DonorProfile from './Pages/Donors/DonorProfile/DonorProfile';
 import Login from './Pages/Login/Login';
+import MatchBooldRequest from './Pages/Donors/MatchBloodRequest/MatchBooldRequest';
 
 function App() {
   return (
@@ -27,6 +28,8 @@ function App() {
         {/* donor */}
 
         <Route path='profile' element={<DonorProfile></DonorProfile>}></Route>
+
+        <Route path='/bloodRequests' element={<MatchBooldRequest></MatchBooldRequest>}></Route>
 
 
 

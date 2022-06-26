@@ -11,7 +11,7 @@ const DonorProfile = () => {
 
     const [user, loading, error] = useAuthState(auth);
 
-    console.log(user)
+    // console.log(user)
     const url = `http://localhost:5000/profile/${user?.email}`
 
     const { isLoading, data, refetch } = useQuery(`${user?.email}`, () => fetch(url).then(res => res.json()))
@@ -23,7 +23,7 @@ const DonorProfile = () => {
         return <Loading></Loading>
     }
 
-    console.log(data)
+    // console.log(data)
 
     const updateProfile = (event) => {
 
