@@ -1,6 +1,7 @@
 import React from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+
 
 import auth from '../../firebase.init'
 const Register = () => {
@@ -107,6 +108,11 @@ const Register = () => {
                         </div>
 
                     </form>
+
+
+                    <div className='text-center font-semibold'>
+                        <p>Already A Donor : <Link className='text-red-400' to='/login'>Login</Link></p>
+                    </div>
 
                 </div>
 
