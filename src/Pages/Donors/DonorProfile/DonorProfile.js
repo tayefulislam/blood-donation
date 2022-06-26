@@ -2,6 +2,9 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../../firebase.init';
 import { format, parseISO } from 'date-fns';
+import { useQuery } from 'react-query';
+import Loading from '../../Shared/Loading/Loading';
+
 
 const DonorProfile = () => {
 
@@ -9,7 +12,18 @@ const DonorProfile = () => {
     const [user, loading, error] = useAuthState(auth);
 
     console.log(user)
+    const url = `http://localhost:5000/profile/${user?.email}`
 
+    const { isLoading, data, refetch } = useQuery(`${user?.email}`, () => fetch(url).then(res => res.json()))
+
+
+
+
+    if (loading || isLoading) {
+        return <Loading></Loading>
+    }
+
+    console.log(data)
 
     const updateProfile = (event) => {
 
@@ -17,11 +31,11 @@ const DonorProfile = () => {
 
         // comvert date
 
-        const getDate = parseISO(event.target.date.value);
+        // const getDate = parseISO(event.target.date.value);
 
-        const stringDate = format(getDate || new Date(), 'PP')
+        // const stringDate = format(getDate || new Date(), 'PP')
 
-        console.log(stringDate)
+        // console.log(stringDate)
 
         const name = event.target.name.value;
         const email = event.target.email.value;
@@ -52,6 +66,10 @@ const DonorProfile = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+
+                if (data?.modifiedCount > 0) {
+                    refetch()
+                }
             })
 
 
@@ -101,7 +119,9 @@ const DonorProfile = () => {
                                 <span class="label-text">Phone Number:</span>
 
                             </label>
-                            <input type="number" required placeholder="Phone Number" name='number' class="input input-bordered input-error w-full max-w-xs" />
+                            <input type="number" required
+                                defaultValue={data?.number}
+                                placeholder="Phone Number" name='number' class="input input-bordered input-error w-full max-w-xs" />
                             <label class="label">
 
                             </label>
@@ -113,25 +133,44 @@ const DonorProfile = () => {
 
                             </label>
 
-                            <select name='group' required class="select select-error w-full max-w-xs">
-                                <option disabled selected>Select Blood Group</option>
-                                <option value='A+'>A+ (A POSITIVE)</option>
-                                <option value='A-'>A- (A NEGATIVE)</option>
-                                <option value='B+'>B+ (B POSITIVE)</option>
-                                <option value='B-'>B- (B NEGATIVE)</option>
 
-                                <option value='AB+'>AB+ (AB POSITIVE)</option>
-                                <option value='AB-'>AB- (AB NEGATIVE)</option>
-                                <option value='O+'>O+ (O POSITIVE)</option>
-                                <option value='O-'>O- (O NEGATIVE)</option>
 
-                            </select>
+                            {
+
+                                !data?.group && <select name='group' required class="select select-error w-full max-w-xs">
+                                    <option disabled selected>Select Blood Group</option>
+                                    <option value='A+'>A+ (A POSITIVE)</option>
+                                    <option value='A-'>A- (A NEGATIVE)</option>
+                                    <option value='B+'>B+ (B POSITIVE)</option>
+                                    <option value='B-'>B- (B NEGATIVE)</option>
+
+                                    <option value='AB+'>AB+ (AB POSITIVE)</option>
+                                    <option value='AB-'>AB- (AB NEGATIVE)</option>
+                                    <option value='O+'>O+ (O POSITIVE)</option>
+                                    <option value='O-'>O- (O NEGATIVE)</option>
+
+                                </select>
+
+                            }
+
+
+                            {
+                                data?.group && <input type="text" name='group'
+                                    disabled
+
+                                    defaultValue={data?.group}
+
+                                    class="input input-bordered input-error w-full max-w-xs" />
+
+                            }
 
                             <label class="label">
 
                             </label>
                         </div>
-                        <div class="form-control w-full max-w-xs">
+
+
+                        {/* <div class="form-control w-full max-w-xs">
                             <label class="label">
                                 <span class="label-text"> Last Blood Donation Date :</span>
 
@@ -140,7 +179,7 @@ const DonorProfile = () => {
                             <label class="label">
 
                             </label>
-                        </div>
+                        </div> */}
 
 
                         <div class="form-control w-full max-w-xs">
@@ -153,7 +192,7 @@ const DonorProfile = () => {
                             <select name='district' required class="select select-error w-full max-w-xs">
 
                                 <option value='Dhaka'>Dhaka</option>
-                                <option value='Brahmanbaria'>Brahmanbaria</option>
+                                <option value='Brahmanbaria' selected={data?.district === "Brahmanbaria"}>Brahmanbaria</option>
 
 
 
@@ -164,7 +203,9 @@ const DonorProfile = () => {
                                 <span class="label-text">Area :</span>
 
                             </label>
-                            <textarea type="text" required placeholder="Area" name='area' class="input input-bordered input-error w-full max-w-xs" />
+                            <textarea type="text" required
+                                defaultValue={data?.area}
+                                placeholder="Area" name='area' class="input input-bordered input-error w-full max-w-xs" />
                             <label class="label">
 
                             </label>
