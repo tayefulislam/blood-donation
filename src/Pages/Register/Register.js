@@ -1,5 +1,6 @@
 import React from 'react';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 
 import auth from '../../firebase.init'
 const Register = () => {
@@ -12,6 +13,10 @@ const Register = () => {
     ] = useCreateUserWithEmailAndPassword(auth);
 
     const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
+    // navigate 
+
+    const navigate = useNavigate()
 
     const handleRegister = async (event) => {
         event.preventDefault()
@@ -38,6 +43,12 @@ const Register = () => {
             .then(res => res.json())
             .then(data => {
                 console.log(data)
+
+                if (data?.insertedId) {
+
+
+
+                }
             })
 
 
@@ -89,7 +100,7 @@ const Register = () => {
 
 
                         <div className='flex justify-center items-center'>
-                            <input className='btn' type="submit" value="Submit" />
+                            <input className='btn' type="submit" value="Signup" />
                         </div>
 
                     </form>

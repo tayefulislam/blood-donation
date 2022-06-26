@@ -20,9 +20,9 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
 
         <Route path='/makeRequests' element={<MakeBloodRequest></MakeBloodRequest>}></Route>
-      </Routes>
 
-      <Register></Register>
+        <Route path='/register' element={<Register></Register>}></Route>
+      </Routes>
 
 
 
