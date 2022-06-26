@@ -47,6 +47,9 @@ const Register = () => {
                 if (data?.insertedId) {
 
 
+                    navigate('/profile')
+
+
 
                 }
             })
