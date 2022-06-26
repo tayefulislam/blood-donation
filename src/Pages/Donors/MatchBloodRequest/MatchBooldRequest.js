@@ -42,6 +42,13 @@ const MatchBooldRequest = () => {
     return (
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
 
+            {
+                requests?.length === 0 && <div className='text-center text-semibold text-red-600'>
+
+                    <h1>No Blood Request Found</h1>
+                </div>
+            }
+
 
             {
 

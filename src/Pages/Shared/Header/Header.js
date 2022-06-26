@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { signOut } from 'firebase/auth';
+import Loading from '../Loading/Loading';
 
 
 
@@ -11,11 +12,20 @@ const Header = () => {
 
     const [user, loading, error] = useAuthState(auth);
 
+    if (loading) {
+        return <Loading></Loading>
+    }
+
 
     const manu = <>
 
-        <li><Link to='/makeRequests'>Blood Request</Link></li>
-        <li><Link to='/bloodRequests'>Blood Requests (Donor)</Link></li>
+        <li><Link to='/makeRequests'>Make Blood Request</Link></li>
+        {
+            user && <>
+                <li><Link to='/bloodRequests'>Blood Requests (Donor)</Link></li>
+            </>
+        }
+
         <li><Link to='/'>Item 3</Link></li>
 
 
@@ -34,7 +44,7 @@ const Header = () => {
                         {manu}
                     </ul>
                 </div>
-                <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+                <a class="btn btn-ghost normal-case text-xl">+Donate</a>
             </div>
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal p-0">
@@ -58,7 +68,7 @@ const Header = () => {
                                     <span class="badge">New</span>
                                 </Link>
                             </li>
-                            <li><a>Settings</a></li>
+                            {/* <li><a>Settings</a></li> */}
 
                             {
                                 user?.email && <li><a onClick={() => signOut(auth)}>Logout</a></li>
