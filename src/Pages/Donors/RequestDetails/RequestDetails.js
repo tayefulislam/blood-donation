@@ -9,7 +9,7 @@ const RequestDetails = ({ request }) => {
     const { patient, medical, group, district, number, date, time, area, type } = request
 
     return (
-        <div class="card w-full bg-neutral text-neutral-content">
+        <div class="card w-full bg-red-500 text-neutral-content">
             <div class="card-body items-center text-center">
                 <h2 class="card-title">Blood For {patient}</h2>
                 <p>Blood Group : {group}</p>

@@ -39,10 +39,11 @@ const MakeBloodRequest = () => {
         const type = event.target.type.value;
         const district = event.target.district.value;
         const area = event.target.area.value;
+        const comment = event.target.comment.value;
 
 
         // new blood request 
-        const bloodRequest = { patient, medical, number, unit, group, date: stringDate, time: time, type, district, area }
+        const bloodRequest = { patient, medical, number, unit, group, date: stringDate, time: time, type, district, area, comment }
 
         console.log(bloodRequest)
 
@@ -79,6 +80,18 @@ const MakeBloodRequest = () => {
 
                             </label>
                             <input type="text" required placeholder="Patient Name" name='patient' class="input input-bordered input-error w-full max-w-xs" />
+                            <label class="label">
+
+                            </label>
+                        </div>
+
+
+                        <div class="form-control w-full max-w-xs">
+                            <label class="label">
+                                <span class="label-text">Comment:</span>
+
+                            </label>
+                            <textarea type="text" required placeholder="Comment" name='comment' class="input input-bordered input-error w-full max-w-xs" />
                             <label class="label">
 
                             </label>
@@ -121,15 +134,15 @@ const MakeBloodRequest = () => {
 
                             <select name='group' required class="select select-error w-full max-w-xs">
                                 <option disabled selected>Select Blood Group</option>
-                                <option value='A+'>A+ (A POSITIVE)</option>
-                                <option value='A-'>A- (A NEGATIVE)</option>
-                                <option value='B+'>B+ (B POSITIVE)</option>
-                                <option value='B-'>B- (B NEGATIVE)</option>
+                                <option value='A POSITIVE(+)'>A+ (A POSITIVE)</option>
+                                <option value='A NEGATIVE(-)'>A- (A NEGATIVE)</option>
+                                <option value='B POSITIVE(+)'>B+ (B POSITIVE)</option>
+                                <option value='B NEGATIVE(-)'>B- (B NEGATIVE)</option>
 
-                                <option value='AB+'>AB+ (AB POSITIVE)</option>
-                                <option value='AB-'>AB- (AB NEGATIVE)</option>
-                                <option value='O+'>O+ (O POSITIVE)</option>
-                                <option value='O-'>O- (O NEGATIVE)</option>
+                                <option value='AB POSITIVE(+)'>AB+ (AB POSITIVE)</option>
+                                <option value='AB NEGATIVE(-)'>AB- (AB NEGATIVE)</option>
+                                <option value='O POSITIVE(+)'>O+ (O POSITIVE)</option>
+                                <option value='O NEGATIVE(-)'>O- (O NEGATIVE)</option>
 
                             </select>
 

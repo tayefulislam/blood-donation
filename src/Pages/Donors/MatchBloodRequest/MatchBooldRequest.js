@@ -18,16 +18,16 @@ const MatchBooldRequest = () => {
 
 
 
+    //encodeURIComponent('test+')
 
 
-
-    const urlquery = `http://localhost:5000/bloodreqests/${data?.group}?district=${data?.district}`
+    const urlquery = `http://localhost:5000/bloodreqests?group=${encodeURIComponent(data?.group)}&district=${data?.district}`
 
     console.log(urlquery)
 
-    const { isLoading: loadingQuery, data: requests, refetch: reload } = useQuery(`${user?.email}requets`, () => fetch(urlquery).then(res => res.json()))
+    const { isLoading: loadingQuery, data: requests, refetch: reload } = useQuery(`requets`, () => fetch(urlquery).then(res => res.json()))
 
-    if (loading || isLoading) {
+    if (loading || isLoading || loadingQuery) {
         return <Loading></Loading>
     }
 
@@ -40,34 +40,38 @@ const MatchBooldRequest = () => {
 
 
     return (
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+        <>
 
             {
-                requests?.length === 0 && <div className='text-center text-semibold text-red-600'>
+                requests?.length === 0 && <div>
 
-                    <h1>No Blood Request Found</h1>
+                    <h1 className='text-center text-semibold text-red-600'>No Blood Request Found</h1>
                 </div>
             }
 
 
-            {
-
-                requests?.map((request, index) => <RequestDetails
-
-                    request={request}
-                    key={index}
-
-                ></RequestDetails>)
 
 
-            }
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-2'>
+
+                {
+
+                    requests?.map((request, index) => <RequestDetails
+
+                        request={request}
+                        key={index}
+
+                    ></RequestDetails>)
+
+
+                }
 
 
 
 
+            </div>
 
-
-        </div>
+        </>
     );
 };
 

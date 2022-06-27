@@ -4,7 +4,7 @@ import auth from '../../../firebase.init';
 import { format, parseISO } from 'date-fns';
 import { useQuery } from 'react-query';
 import Loading from '../../Shared/Loading/Loading';
-
+import { toast } from 'react-toastify';
 
 const DonorProfile = () => {
 
@@ -68,6 +68,7 @@ const DonorProfile = () => {
                 console.log(data)
 
                 if (data?.modifiedCount > 0) {
+                    toast.success("Your Profile Updated")
                     refetch()
                 }
             })
@@ -139,15 +140,15 @@ const DonorProfile = () => {
 
                                 !data?.group && <select name='group' required class="select select-error w-full max-w-xs">
                                     <option disabled selected>Select Blood Group</option>
-                                    <option value='A+'>A+ (A POSITIVE)</option>
-                                    <option value='A-'>A- (A NEGATIVE)</option>
-                                    <option value='B+'>B+ (B POSITIVE)</option>
-                                    <option value='B-'>B- (B NEGATIVE)</option>
+                                    <option value='A POSITIVE(+)'>A+ (A POSITIVE)</option>
+                                    <option value='A NEGATIVE(-)'>A- (A NEGATIVE)</option>
+                                    <option value='B POSITIVE(+)'>B+ (B POSITIVE)</option>
+                                    <option value='B NEGATIVE(-)'>B- (B NEGATIVE)</option>
 
-                                    <option value='AB+'>AB+ (AB POSITIVE)</option>
-                                    <option value='AB-'>AB- (AB NEGATIVE)</option>
-                                    <option value='O+'>O+ (O POSITIVE)</option>
-                                    <option value='O-'>O- (O NEGATIVE)</option>
+                                    <option value='AB POSITIVE(+)'>AB+ (AB POSITIVE)</option>
+                                    <option value='AB NEGATIVE(-)'>AB- (AB NEGATIVE)</option>
+                                    <option value='O POSITIVE(+)'>O+ (O POSITIVE)</option>
+                                    <option value='O NEGATIVE(-)'>O- (O NEGATIVE)</option>
 
                                 </select>
 
@@ -156,8 +157,8 @@ const DonorProfile = () => {
 
                             {
                                 data?.group && <input type="text" name='group'
-                                    disabled
 
+                                    disabled
                                     defaultValue={data?.group}
 
                                     class="input input-bordered input-error w-full max-w-xs" />
