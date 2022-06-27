@@ -44,8 +44,9 @@ const Header = () => {
                 }
 
 
+                {/* condition rendaring on website name click*/}
 
-                <Link to='/' class="btn btn-ghost normal-case text-xl"><i class="fa-solid fa-droplet text-red-600 mx-1"></i> Donate</Link>
+                <Link to={user ? '/dashboard' : '/'} class="btn btn-ghost normal-case text-xl"><i class="fa-solid fa-droplet text-red-600 mx-1"></i> Donate</Link>
             </div>
             <div class="navbar-center hidden lg:flex">
                 <ul class="menu menu-horizontal p-0">

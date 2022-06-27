@@ -12,6 +12,7 @@ import DonorProfile from './Pages/Donors/DonorProfile/DonorProfile';
 import Login from './Pages/Login/Login';
 import MatchBooldRequest from './Pages/Donors/MatchBloodRequest/MatchBooldRequest';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import RequireAuth from './Pages/Auths/RequireAuth/RequireAuth'
 
 function App() {
   return (
@@ -28,17 +29,17 @@ function App() {
 
         {/* admin and donor */}
 
-        <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
+        <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}></Route>
 
 
         {/* donor */}
 
-        <Route path='profile' element={<DonorProfile></DonorProfile>}></Route>
+        <Route path='profile' element={<RequireAuth><DonorProfile></DonorProfile></RequireAuth>}></Route>
 
-        <Route path='/bloodRequests' element={<MatchBooldRequest></MatchBooldRequest>}></Route>
+        <Route path='/bloodRequests' element={<RequireAuth><MatchBooldRequest></MatchBooldRequest></RequireAuth>}></Route>
 
 
-
+        {/* login and register */}
 
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>

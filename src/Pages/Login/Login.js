@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 
@@ -36,6 +36,10 @@ const Login = () => {
     }
 
     const navigate = useNavigate()
+    let location = useLocation();
+
+
+    let from = location.state?.from?.pathname || "/dashboard";
 
 
 
@@ -43,7 +47,7 @@ const Login = () => {
 
         console.log(user)
 
-        navigate('/dashboard')
+        navigate(from, { replace: true });
     }
 
 
