@@ -43,7 +43,7 @@ const Login = () => {
 
         console.log(user)
 
-        navigate('/')
+        navigate('/dashboard')
     }
 
 
@@ -92,6 +92,7 @@ const Login = () => {
                     <div className='text-center font-semibold'>
                         <p>Became A Donor : <Link className='text-red-400' to='/register'>Register</Link></p>
                     </div>
+
 
                 </div>
 

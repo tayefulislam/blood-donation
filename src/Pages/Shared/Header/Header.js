@@ -3,7 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { signOut } from 'firebase/auth';
-import Loading from '../Loading/Loading';
+
 
 
 
@@ -19,7 +19,8 @@ const Header = () => {
 
         {
             user && <>
-                <li><Link className='text-red-500 font-semibold hover:bg-base-100' to='/bloodRequests'>Blood Requests (Donor)</Link></li>
+                {/* <li><Link className='text-red-500 font-semibold hover:bg-base-100' to='/bloodRequests'>Blood Requests (Donor)</Link></li> */}
+                <li><Link className='text-red-500 font-semibold hover:bg-base-100' to='/dashboard'>Dashboard</Link></li>
             </>
         }
 

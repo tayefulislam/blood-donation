@@ -11,6 +11,7 @@ import Register from './Pages/Register/Register';
 import DonorProfile from './Pages/Donors/DonorProfile/DonorProfile';
 import Login from './Pages/Login/Login';
 import MatchBooldRequest from './Pages/Donors/MatchBloodRequest/MatchBooldRequest';
+import Dashboard from './Pages/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -23,6 +24,11 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
 
         <Route path='/makeRequests' element={<MakeBloodRequest></MakeBloodRequest>}></Route>
+
+
+        {/* admin and donor */}
+
+        <Route path='/dashboard' element={<Dashboard></Dashboard>}></Route>
 
 
         {/* donor */}
