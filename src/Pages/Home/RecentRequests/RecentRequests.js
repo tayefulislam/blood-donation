@@ -1,13 +1,13 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import useRecentRequests from '../../../hooks/useRecentRequests/useRecentRequests';
 
 const RecentRequests = () => {
 
-    const url = `http://localhost:5000/allbloodrequests`;
 
+    const { data, isLoading } = useRecentRequests();
 
-    const { isLoading, data } = useQuery('recent-requests', () => fetch(url).then(res => res.json()))
-
+    console.log(data)
 
 
 
