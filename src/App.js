@@ -13,6 +13,7 @@ import Login from './Pages/Login/Login';
 import MatchBooldRequest from './Pages/Donors/MatchBloodRequest/MatchBooldRequest';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import RequireAuth from './Pages/Auths/RequireAuth/RequireAuth'
+import RecentRequests from './Pages/Home/RecentRequests/RecentRequests';
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
         <Route path='/' element={<Home></Home>}></Route>
 
         <Route path='/makeRequests' element={<MakeBloodRequest></MakeBloodRequest>}></Route>
+
+        <Route path='/recentRequests' element={<RecentRequests></RecentRequests>}></Route>
 
 
         {/* admin and donor */}
