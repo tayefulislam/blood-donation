@@ -1,3 +1,34 @@
+# Project Name : Blood Donaation
+Author : Tayeful Islam
+
+
+## `User Manual`
+
+## **Client Side** 
+
+
+Edit .env.local file
+
+
+REACT_APP_apiKey= apiKey\
+REACT_APP_authDomain= authDomain \
+REACT_APP_projectId= projectId \
+REACT_APP_storageBucket= storageBucket \
+REACT_APP_messagingSenderId= messagingSenderId \
+REACT_APP_appId= appId \
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
