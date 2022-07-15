@@ -23,7 +23,10 @@ REACT_APP_appId= appId
 
 Edit .env file \
 DB_USER=database user name \
-DB_PASSWORD=database password 
+DB_PASSWORD=database password \
+Email_Address=\
+Email_Password=\
+Email_Host=
 
 
 
