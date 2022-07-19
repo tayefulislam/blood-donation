@@ -47,7 +47,7 @@ const MakeBloodRequest = () => {
 
         console.log(bloodRequest)
 
-        const url = `https://blooming-sea-92425.herokuapp.com/bloodRequest`
+        const url = `https://powerful-cliffs-61820.herokuapp.com/bloodRequest`
 
         axios.post(url, bloodRequest)
             .then(function (response) {
