@@ -11,7 +11,7 @@ const MatchBooldRequest = () => {
 
     const [user, loading, error] = useAuthState(auth);
 
-    const url = `http://localhost:5000/profile/${user?.email}`
+    const url = `https://powerful-cliffs-61820.herokuapp.com/profile/${user?.email}`
 
     const { isLoading, data, refetch } = useQuery(`${user?.email}`, () => fetch(url).then(res => res.json()))
 
@@ -21,7 +21,7 @@ const MatchBooldRequest = () => {
     //encodeURIComponent('test+')
 
 
-    const urlquery = `http://localhost:5000/bloodreqests?group=${encodeURIComponent(data?.group)}&district=${data?.district}`
+    const urlquery = `https://powerful-cliffs-61820.herokuapp.com/bloodreqests?group=${encodeURIComponent(data?.group)}&district=${data?.district}`
 
     console.log(urlquery)
 

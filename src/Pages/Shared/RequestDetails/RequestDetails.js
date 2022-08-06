@@ -16,7 +16,7 @@ const RequestDetails = () => {
         toast.success('URL Copied to clipboard');
     }
 
-    const url = `http://localhost:5000/requestDetails/${params?.reqId}`;
+    const url = `https://powerful-cliffs-61820.herokuapp.com/requestDetails/${params?.reqId}`;
 
     const { isLoading, data } = useQuery(`${params?.reqId + 'request'}`, () => fetch(url).then(res => res.json()))
 
@@ -43,10 +43,10 @@ const RequestDetails = () => {
                     <h1>Date : {data?.date} </h1>
                     <h1>Time : {data?.time}</h1>
                     <h1 className='text-center font-semibold'>Address</h1>
-                    <h1>Medical : Dhaka Medical College</h1>
-                    <h1>Number : 43455345</h1>
-                    <h1>Area : Dhaka Medical College,Dhaka</h1>
-                    <h1>District : Dhaka</h1>
+                    <h1>Medical : {data?.medical}</h1>
+                    <h1>Number : {data?.number}</h1>
+                    <h1>Area : {data?.area}</h1>
+                    <h1>District : {data?.district}</h1>
 
                     <div className='flex flex-col justify-center items-center mx-2'>
 
