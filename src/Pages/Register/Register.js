@@ -32,7 +32,7 @@ const Register = () => {
 
         const user = { email }
 
-        const url = `https://powerful-cliffs-61820.herokuapp.com/createDonor`
+        const url = `http://localhost:5000/createDonor`
 
         fetch(url, {
             method: "POST",

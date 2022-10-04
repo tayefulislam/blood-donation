@@ -16,7 +16,7 @@ const RequestDetails = () => {
         toast.success('URL Copied to clipboard');
     }
 
-    const url = `https://powerful-cliffs-61820.herokuapp.com/requestDetails/${params?.reqId}`;
+    const url = `http://localhost:5000/requestDetails/${params?.reqId}`;
 
     const { isLoading, data } = useQuery(`${params?.reqId + 'request'}`, () => fetch(url).then(res => res.json()))
 

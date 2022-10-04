@@ -15,6 +15,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import RequireAuth from './Pages/Auths/RequireAuth/RequireAuth'
 import RecentRequests from './Pages/Home/RecentRequests/RecentRequests';
 import RequestDetails from './Pages/Shared/RequestDetails/RequestDetails';
+import ManageUsers from './Pages/Admin/ManageUsers/ManageUsers';
 
 function App() {
   return (
@@ -36,6 +37,10 @@ function App() {
         {/* admin and donor */}
 
         <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}></Route>
+
+        {/* Only Admin  */}
+
+        <Route path='/dashboard/users' element={<ManageUsers></ManageUsers>}></Route>
 
 
         {/* donor */}

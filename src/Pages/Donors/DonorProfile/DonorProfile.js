@@ -12,7 +12,7 @@ const DonorProfile = () => {
     const [user, loading, error] = useAuthState(auth);
 
     // console.log(user)
-    const url = `https://powerful-cliffs-61820.herokuapp.com/profile/${user?.email}`
+    const url = `http://localhost:5000/profile/${user?.email}`
 
     const { isLoading, data, refetch } = useQuery(`${user?.email}`, () => fetch(url).then(res => res.json()))
 
@@ -53,7 +53,7 @@ const DonorProfile = () => {
 
         console.log(updatedProfile)
 
-        const url = `https://powerful-cliffs-61820.herokuapp.com/updateProfile`
+        const url = `http://localhost:5000/updateProfile`
 
         fetch(url, {
             method: "POST",

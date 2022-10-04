@@ -29,6 +29,16 @@ const Dashboard = () => {
                     </div>
                 </div>
 
+                {/* <div onClick={() => navigate('/dashboard/users')} class="card w-full bg-red-500 shadow-xl text-white">
+                    <figure class="px-10 pt-10">
+                        <i class="fa-solid fa-users-between-lines"></i>
+                    </figure>
+                    <div class="card-body items-center text-center">
+                        <h2 class="card-title">Manage Users</h2>
+
+                    </div>
+                </div> */}
+
 
                 <div onClick={() => navigate('/profile')} class="card w-full bg-red-500 shadow-xl text-white">
                     <figure class="px-10 pt-10">
