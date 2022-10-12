@@ -3,8 +3,13 @@ import { format, parseISO } from 'date-fns';
 import axios from 'axios';
 import { toast } from 'react-toastify';
 
+import { useNavigate } from 'react-router-dom';
+
 
 const MakeBloodRequest = () => {
+
+
+    const navigate = useNavigate();
 
 
     const handleRequest = (event) => {
@@ -47,7 +52,7 @@ const MakeBloodRequest = () => {
 
         console.log(bloodRequest)
 
-        const url = `https://powerful-cliffs-61820.herokuapp.com/bloodRequest`
+        const url = `http://localhost:5000/bloodRequest`
 
         axios.post(url, bloodRequest)
             .then(function (response) {
@@ -55,7 +60,13 @@ const MakeBloodRequest = () => {
                 console.log(response)
 
                 if (response.data.insertedId) {
-                    toast.success(`Your Request for ${type} successfully placed`)
+
+
+
+                    navigate(`/requestDetails/${response.data.insertedId}`)
+                    toast.success(`Your Request for ${type} successfully placed`);
+
+
                     event.target.reset()
                 }
 
