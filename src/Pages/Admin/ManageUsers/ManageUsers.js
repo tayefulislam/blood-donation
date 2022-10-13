@@ -2,7 +2,7 @@ import React from "react";
 import { useQuery } from "react-query";
 
 const ManageUsers = () => {
-  const usersUrl = `http://localhost:5000/admin/users`;
+  const usersUrl = `http://localhost:5000/api/v1/donors/admin/users`;
   const { isLoading, error, data } = useQuery("allusers", () =>
     fetch(usersUrl).then((res) => res.json())
   );
