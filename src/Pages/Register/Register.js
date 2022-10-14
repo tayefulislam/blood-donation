@@ -16,6 +16,8 @@ const Register = () => {
 
   const navigate = useNavigate();
 
+  console.log(user, error);
+
   const handleRegister = async (event) => {
     event.preventDefault();
 
@@ -26,25 +28,27 @@ const Register = () => {
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
 
-    const user = { email };
+    const userNew = { email };
 
-    const url = `http://localhost:5000/api/v1/donors/`;
+    const url = `https://blooddonationmvc.onrender.com/api/v1/donors/`;
 
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("line 42", data);
+    if (user?.user?.uid) {
+      fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userNew),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("line 42", data);
 
-        if (data?.insertedId) {
-          navigate("/profile");
-        }
-      });
+          if (data?.email) {
+            navigate("/profile");
+          }
+        });
+    }
   };
   return (
     <div className="flex justify-center items-center">
