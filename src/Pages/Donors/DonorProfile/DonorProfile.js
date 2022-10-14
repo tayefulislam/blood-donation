@@ -48,7 +48,7 @@ const DonorProfile = () => {
 
     console.log(updatedProfile);
 
-    const url = `http://localhost:5000/api/v1/donors/`;
+    const url = `https://blooddonationmvc.onrender.com/api/v1/donors/`;
 
     fetch(url, {
       method: "PATCH",
