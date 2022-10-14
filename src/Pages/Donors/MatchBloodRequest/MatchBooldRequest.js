@@ -4,15 +4,18 @@ import auth from "../../../firebase.init";
 import { useQuery } from "react-query";
 import Loading from "../../Shared/Loading/Loading";
 import RequestDetails from "../RequestDetails/RequestDetails";
+import { useNavigate } from "react-router-dom";
 
 const MatchBooldRequest = () => {
   const [user, loading, error] = useAuthState(auth);
+  const navigate = useNavigate();
 
   const url = `https://blooddonationmvc.onrender.com/api/v1/donors/${user?.email}`;
 
   const { isLoading, data, refetch } = useQuery(`${user?.email}`, () =>
     fetch(url).then((res) => res.json())
   );
+  console.log(data);
 
   //encodeURIComponent('test+')
 
@@ -20,7 +23,7 @@ const MatchBooldRequest = () => {
     data?.group
   )}&district=${data?.district}`;
 
-  console.log(urlquery);
+  // console.log(urlquery);
 
   const {
     isLoading: loadingQuery,
@@ -32,9 +35,13 @@ const MatchBooldRequest = () => {
     return <Loading></Loading>;
   }
 
-  console.log(data);
+  // console.log(data);
 
-  console.log(requests);
+  // console.log(requests);
+
+  if (!data) {
+    navigate("/profile");
+  }
 
   return (
     <>
@@ -42,6 +49,14 @@ const MatchBooldRequest = () => {
         <div>
           <h1 className="text-center text-semibold text-red-600">
             No Blood Request Found
+          </h1>
+        </div>
+      )}
+
+      {!data && (
+        <div>
+          <h1 className="text-center text-semibold text-red-600">
+            Please update your Profile
           </h1>
         </div>
       )}

@@ -16,7 +16,7 @@ const DonorProfile = () => {
     fetch(url).then((res) => res.json())
   );
 
-  if (loading || isLoading) {
+  if (loading) {
     return <Loading></Loading>;
   }
 
@@ -48,7 +48,7 @@ const DonorProfile = () => {
 
     console.log(updatedProfile);
 
-    const url = `https://blooddonationmvc.onrender.com/api/v1/donors/`;
+    const url = `http://localhost:5000/api/v1/donors/`;
 
     fetch(url, {
       method: "PATCH",
@@ -64,6 +64,9 @@ const DonorProfile = () => {
         if (data?.modifiedCount > 0) {
           toast.success("Your Profile Updated");
           refetch();
+        }
+        if (data?.upsertedCount > 0) {
+          toast.success("Your Profile Create in Blood Donation Database");
         }
       });
   };

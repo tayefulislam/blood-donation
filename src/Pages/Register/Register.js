@@ -1,3 +1,4 @@
+import { async } from "@firebase/util";
 import React from "react";
 import {
   useCreateUserWithEmailAndPassword,
@@ -28,28 +29,32 @@ const Register = () => {
     await createUserWithEmailAndPassword(email, password);
     await updateProfile({ displayName: name });
 
-    const userNew = { email };
+    // const userNew = { email };
 
-    const url = `https://blooddonationmvc.onrender.com/api/v1/donors/`;
+    // const url = `http://localhost:5000/api/v1/donors/`;
 
-    if (user?.user?.uid) {
-      fetch(url, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(userNew),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log("line 42", data);
+    // console.log(user);
 
-          if (data?.email) {
-            navigate("/profile");
-          }
-        });
-    }
+    // fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(userNew),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log("line 42", data);
+
+    //     if (user) {
+    //       navigate("/profile");
+    //     }
+    //   });
   };
+
+  if (user) {
+    navigate("/profile");
+  }
   return (
     <div className="flex justify-center items-center">
       <div className="card w-96">
@@ -97,7 +102,7 @@ const Register = () => {
               <label class="label"></label>
             </div>
 
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center flex-col">
               <input className="btn" type="submit" value="Signup" />
             </div>
           </form>
