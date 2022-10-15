@@ -31,7 +31,7 @@ const ManagerUsers = () => {
   const [userModal, setUser] = useState("");
 
   const makeAdmin = (userEmail) => {
-    const url = `http://localhost:5000/api/v1/donors/${userEmail}`;
+    const url = `https://blooddonationmvc.onrender.com/api/v1/donors/${userEmail}`;
 
     axios.patch(url).then(function (response) {
       console.log(response);
@@ -52,9 +52,10 @@ const ManagerUsers = () => {
 
   return (
     <div>
+      <h1 className="text-center my-2">Total User : {data?.length}</h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mx-2">
         {data?.map((user) => (
-          <div class="card w-full bg-neutral text-neutral-content">
+          <div class="card w-full bg-red-500 text-neutral-content">
             <div class="card-body items-center text-center">
               <h2 class="card-title">{user?.name}</h2>
               <h2 class="card-title">{user?.group}</h2>

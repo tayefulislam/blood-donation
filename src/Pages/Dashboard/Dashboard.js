@@ -13,7 +13,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   // console.log("user", user);
 
-  const usersUrl = `http://localhost:5000/api/v1/donors/${user?.email}`;
+  const usersUrl = `https://blooddonationmvc.onrender.com/api/v1/donors/${user?.email}`;
   const {
     isLoading,
     error: dataError,

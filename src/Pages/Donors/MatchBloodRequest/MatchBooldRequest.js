@@ -10,7 +10,7 @@ const MatchBooldRequest = () => {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
-  const url = `http://localhost:5000/api/v1/donors/${user?.email}`;
+  const url = `https://blooddonationmvc.onrender.com/api/v1/donors/${user?.email}`;
 
   const { isLoading, data, refetch } = useQuery(`${user?.email}`, () =>
     fetch(url).then((res) => res.json())
@@ -19,7 +19,7 @@ const MatchBooldRequest = () => {
 
   //encodeURIComponent('test+')
 
-  const urlquery = `http://localhost:5000/api/v1/bloodRequest?group=${encodeURIComponent(
+  const urlquery = `https://blooddonationmvc.onrender.com/api/v1/bloodRequest?group=${encodeURIComponent(
     data?.group
   )}&district=${data?.district}`;
 
