@@ -31,7 +31,7 @@ const Register = () => {
 
     // const userNew = { email };
 
-    // const url = `https://blooddonationmvc.onrender.com/api/v1/donors/`;
+    // const url = `http://localhost:5000/api/v1/donors/`;
 
     // console.log(user);
 
