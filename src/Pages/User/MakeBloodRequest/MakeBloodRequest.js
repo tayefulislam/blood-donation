@@ -56,7 +56,7 @@ const MakeBloodRequest = () => {
 
     console.log(bloodRequest);
 
-    const url = `http://localhost:5000/api/v1/bloodRequest`;
+    const url = `https://blooddonationmvc.onrender.com/api/v1/bloodRequest`;
 
     axios.post(url, bloodRequest).then(function (response) {
       console.log(response);
