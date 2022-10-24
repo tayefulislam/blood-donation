@@ -9,6 +9,8 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import Typography from "@mui/material/Typography";
 import Loading from "../../Shared/Loading/Loading";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "../../../firebase.init";
 
 const style = {
   position: "absolute",
@@ -23,7 +25,13 @@ const style = {
 };
 
 const ManagerUsers = () => {
-  const { data, isLoading, refetch } = useManageUsers();
+  const [user, loading, error] = useAuthState(auth);
+  if (loading) {
+    console.log("Loading");
+  }
+  // console.log(user.email);
+
+  const { data, isLoading, refetch } = useManageUsers(user.email);
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

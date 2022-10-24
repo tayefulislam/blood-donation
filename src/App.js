@@ -56,7 +56,11 @@ function App() {
 
         <Route
           path="/dashboard/users"
-          element={<ManagerUsers></ManagerUsers>}
+          element={
+            <RequireAuth>
+              <ManagerUsers></ManagerUsers>
+            </RequireAuth>
+          }
         ></Route>
 
         {/* donor */}
