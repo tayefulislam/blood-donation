@@ -39,7 +39,7 @@ const ManagerUsers = () => {
   const [userModal, setUser] = useState("");
 
   const makeAdmin = (userEmail) => {
-    const url = `https://blooddonationmvc.onrender.com/api/v1/donors/${userEmail}`;
+    const url = `http://localhost:5000/api/v1/donors/${userEmail}`;
 
     axios.patch(url).then(function (response) {
       console.log(response);
@@ -71,36 +71,38 @@ const ManagerUsers = () => {
   return (
     <div>
       <h1 className="text-center my-2">Total User : {data?.length}</h1>
-      <form onSubmit={handleSearch}>
-        <div className="form-control">
-          <div className="input-group">
-            <input
-              type="text"
-              placeholder="Search…"
-              className="input input-bordered"
-              name="search"
-            />
-            <button className="btn btn-square">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-6 w-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
-      </form>
 
-      <div>Search Result for : {searchKey}</div>
+      <div className="flex justify-center items-center flex-col">
+        <form onSubmit={handleSearch}>
+          <div className="form-control">
+            <div className="input-group">
+              <input
+                type="text"
+                placeholder="Search…"
+                className="input input-bordered"
+                name="search"
+              />
+              <button className="btn btn-square">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </form>
+        <h1>Search Result for : {searchKey}</h1>
+      </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mx-2">
         {data?.map((user) => (

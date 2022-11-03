@@ -10,7 +10,7 @@ const DonorProfile = () => {
   const [user, loading, error] = useAuthState(auth);
 
   // console.log(user)
-  const url = `https://blooddonationmvc.onrender.com/api/v1/donors/${user?.email}`;
+  const url = `http://localhost:5000/api/v1/donors/${user?.email}`;
 
   const { isLoading, data, refetch } = useQuery(`${user?.email}`, () =>
     fetch(url).then((res) => res.json())
@@ -48,7 +48,7 @@ const DonorProfile = () => {
 
     console.log(updatedProfile);
 
-    const url = `https://blooddonationmvc.onrender.com/api/v1/donors/`;
+    const url = `http://localhost:5000/api/v1/donors/`;
 
     fetch(url, {
       method: "PATCH",

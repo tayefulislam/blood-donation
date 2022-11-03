@@ -15,7 +15,7 @@ const RequestDetails = () => {
     toast.success("URL Copied to clipboard");
   };
 
-  const url = `https://blooddonationmvc.onrender.com/api/v1/bloodRequest/${params?.reqId}`;
+  const url = `http://localhost:5000/api/v1/bloodRequest/${params?.reqId}`;
   console.log(url);
 
   const { isLoading, data } = useQuery(`${params?.reqId + "request"}`, () =>
