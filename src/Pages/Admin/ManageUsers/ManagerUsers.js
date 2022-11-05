@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { useQuery } from "react-query";
 import { toast } from "react-toastify";
 import useManageUsers from "../../../hooks/useRecentRequests/useManageUsers";
@@ -54,26 +54,34 @@ const ManagerUsers = () => {
     setUser(user);
   };
 
-  const handleSearch = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-
     const keyword = event?.target.search.value;
 
-    event.target.reset();
-    console.log(keyword);
     setSearchKey(keyword);
   };
 
-  if (isLoading) {
-    return <Loading></Loading>;
-  }
+  const handleSearch = () => {
+    console.log(searchKey);
+    refetch();
+  };
+
+  useEffect(() => {
+    handleSearch();
+  }, [searchKey]);
+
+  // if (isLoading) {
+  //   return <Loading></Loading>;
+  // }
+
+  console.log(searchKey);
 
   return (
     <div>
       <h1 className="text-center my-2">Total User : {data?.length}</h1>
 
       <div className="flex justify-center items-center flex-col">
-        <form onSubmit={handleSearch}>
+        <form onSubmit={handleSubmit}>
           <div className="form-control">
             <div className="input-group">
               <input
@@ -81,6 +89,8 @@ const ManagerUsers = () => {
                 placeholder="Search…"
                 className="input input-bordered"
                 name="search"
+                onChange={(e) => setSearchKey(e.target.value)}
+                value={searchKey}
               />
               <button className="btn btn-square">
                 <svg
@@ -104,32 +114,40 @@ const ManagerUsers = () => {
         <h1>Search Result for : {searchKey}</h1>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mx-2">
-        {data?.map((user) => (
-          <div class="card w-full bg-red-500 text-neutral-content">
-            <div class="card-body items-center text-center">
-              <h2 class="card-title">{user?.name}</h2>
-              <h2 class="card-title">{user?.group}</h2>
-              <p>
-                {user?.number} / {user?.district}
-              </p>
-              <div class="card-actions justify-end">
-                {user?.role !== "admin" && (
+      {/* if  */}
+      {isLoading ? (
+        <Loading></Loading>
+      ) : (
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mx-2">
+          {data?.map((user) => (
+            <div class="card w-full bg-red-500 text-neutral-content">
+              <div class="card-body items-center text-center">
+                <h2 class="card-title">{user?.name}</h2>
+                <h2 class="card-title">{user?.group}</h2>
+                <p>
+                  {user?.number} / {user?.district}
+                </p>
+                <div class="card-actions justify-end">
+                  {user?.role !== "admin" && (
+                    <button
+                      onClick={() => makeAdmin(user?.email)}
+                      class="btn btn-primary"
+                    >
+                      Make Admin
+                    </button>
+                  )}
                   <button
-                    onClick={() => makeAdmin(user?.email)}
-                    class="btn btn-primary"
+                    class="btn btn-ghost"
+                    onClick={() => handleModal(user)}
                   >
-                    Make Admin
+                    Details
                   </button>
-                )}
-                <button class="btn btn-ghost" onClick={() => handleModal(user)}>
-                  Details
-                </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
 
       <Modal
         aria-labelledby="transition-modal-title"

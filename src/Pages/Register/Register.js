@@ -1,18 +1,18 @@
 import { async } from "@firebase/util";
 import React from "react";
-// import {
-//   useCreateUserWithEmailAndPassword,
-//   useUpdateProfile,
-// } from "react-firebase-hooks/auth";
+import {
+  useCreateUserWithEmailAndPassword,
+  useUpdateProfile,
+} from "react-firebase-hooks/auth";
 import { useNavigate, Link } from "react-router-dom";
 
-// import auth from "../../firebase.init";
+import auth from "../../firebase.init";
 
 const Register = () => {
-  // const [createUserWithEmailAndPassword, user, loading, error] =
-  //   useCreateUserWithEmailAndPassword(auth);
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
 
-  // const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
 
   // navigate
 
@@ -27,29 +27,29 @@ const Register = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
 
-    // await createUserWithEmailAndPassword(email, password);
-    // await updateProfile({ displayName: name });
+    await createUserWithEmailAndPassword(email, password);
+    await updateProfile({ displayName: name });
 
-    const userNew = { email, name, password };
+    // const userNew = { email, name, password };
 
-    const url = `http://localhost:5000/api/v1/donors/createUser`;
+    // const url = `http://localhost:5000/api/v1/donors/createUser`;
 
-    fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userNew),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log("line 42", data);
-      });
+    // fetch(url, {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(userNew),
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     console.log("line 42", data);
+    //   });
   };
 
-  // // if (user) {
-  //   navigate("/profile");
-  // }
+  if (user) {
+    navigate("/profile");
+  }
   return (
     <div className="flex justify-center items-center">
       <div className="card w-96">
