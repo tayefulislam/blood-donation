@@ -32,7 +32,7 @@ const Register = () => {
 
     // const userNew = { email, name, password };
 
-    // const url = `http://localhost:5000/api/v1/donors/createUser`;
+    // const url = `https://blooddonationmvc.onrender.com/api/v1/donors/createUser`;
 
     // fetch(url, {
     //   method: "POST",

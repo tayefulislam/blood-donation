@@ -13,7 +13,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   // console.log("user", user);
 
-  const usersUrl = `http://localhost:5000/api/v1/donors/${user?.email}`;
+  const usersUrl = `https://blooddonationmvc.onrender.com/api/v1/donors/${user?.email}`;
   const {
     isLoading,
     error: dataError,
@@ -23,8 +23,8 @@ const Dashboard = () => {
   console.log(data);
 
   return (
-    <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-2">
+    <div className="">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-2 ">
         <div
           onClick={() => navigate("/bloodRequests")}
           class="card w-full bg-red-500 shadow-xl text-white"
@@ -72,16 +72,27 @@ const Dashboard = () => {
         </div>
       </div>
       {data?.role === "admin" && (
-        <div className="flex justify-center items-center mt-12">
+        <div className="flex-inline lg:flex justify-center items-center gap-2 mt-12 mx-2 mb-2">
           <div
             onClick={() => navigate("/dashboard/users")}
-            class="card w-96 bg-red-500 shadow-xl text-white"
+            class="card w-full bg-red-500 shadow-xl text-white mt-2"
           >
             <figure class="px-10 pt-10">
               <i class="fa-solid fa-users-between-lines"></i>
             </figure>
             <div class="card-body items-center text-center">
               <h2 class="card-title">Manage Users</h2>
+            </div>
+          </div>
+          <div
+            onClick={() => navigate("/dashboard/blood-requests")}
+            class="card w-full bg-red-500 shadow-xl text-white mt-2"
+          >
+            <figure class="px-10 pt-10">
+              <i class="fa-solid fa-users-between-lines"></i>
+            </figure>
+            <div class="card-body items-center text-center">
+              <h2 class="card-title">Manage Blood Requests</h2>
             </div>
           </div>
         </div>

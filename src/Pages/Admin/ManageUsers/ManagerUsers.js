@@ -39,7 +39,7 @@ const ManagerUsers = () => {
   const [userModal, setUser] = useState("");
 
   const makeAdmin = (userEmail) => {
-    const url = `http://localhost:5000/api/v1/donors/${userEmail}`;
+    const url = `https://blooddonationmvc.onrender.com/api/v1/donors/${userEmail}`;
 
     axios.patch(url).then(function (response) {
       console.log(response);
@@ -111,7 +111,7 @@ const ManagerUsers = () => {
             </div>
           </div>
         </form>
-        <h1>Search Result for : {searchKey}</h1>
+        <h1 className="my-2">Search Result for : {searchKey}</h1>
       </div>
 
       {/* if  */}
@@ -119,6 +119,11 @@ const ManagerUsers = () => {
         <Loading></Loading>
       ) : (
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 mx-2">
+          {data?.length === 0 && (
+            <div className="flex justify-center my-2">
+              <h1 className="text-red-500">NO DATA FOUND</h1>
+            </div>
+          )}
           {data?.map((user) => (
             <div class="card w-full bg-red-500 text-neutral-content">
               <div class="card-body items-center text-center">

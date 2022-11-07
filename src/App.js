@@ -16,6 +16,7 @@ import RequireAuth from "./Pages/Auths/RequireAuth/RequireAuth";
 import RecentRequests from "./Pages/Home/RecentRequests/RecentRequests";
 import RequestDetails from "./Pages/Shared/RequestDetails/RequestDetails";
 import ManagerUsers from "./Pages/Admin/ManageUsers/ManagerUsers";
+import ManageRequest from "./Pages/Admin/ManageRequest";
 // import ManageUsers from './Pages/Admin/ManageUsers/ManageUsers';
 
 function App() {
@@ -61,6 +62,11 @@ function App() {
               <ManagerUsers></ManagerUsers>
             </RequireAuth>
           }
+        ></Route>
+
+        <Route
+          path="/dashboard/blood-requests"
+          element={<ManageRequest></ManageRequest>}
         ></Route>
 
         {/* donor */}
