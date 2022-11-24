@@ -30,7 +30,7 @@ const RecentRequests = () => {
           className="select select-error w-full text-black max-w-xs"
         >
           <option value="" selected>
-            Select Group
+            All Group
           </option>
           <option value="A POSITIVE(+)">A POSITIVE(+)</option>
           <option value="A NEGATIVE(-)">A NEGATIVE(-)</option>
@@ -47,7 +47,7 @@ const RecentRequests = () => {
           className="select select-error w-full max-w-xs"
         >
           <option value="" selected>
-            Select District
+            All District
           </option>
           <option value="Dhaka">Dhaka</option>
           <option value="Brahmanbaria">Brahmanbaria</option>
@@ -56,6 +56,12 @@ const RecentRequests = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-2">
         {isLoading && <Loading></Loading>}
+
+        {data.length === 0 && (
+          <div className="text-center text-red-500 font-semibold">
+            <p>No match request found !</p>
+          </div>
+        )}
         {data?.map((request, index) => (
           <RequestDetails request={request} key={index}></RequestDetails>
         ))}
