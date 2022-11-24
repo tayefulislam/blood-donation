@@ -125,7 +125,7 @@ const ManagerUsers = () => {
             </div>
           )}
           {data?.map((user) => (
-            <div class="card w-full bg-red-500 text-neutral-content">
+            <div class="card w-full bg-red-500  text-white">
               <div class="card-body items-center text-center">
                 <h2 class="card-title">{user?.name}</h2>
                 <h2 class="card-title">{user?.group}</h2>

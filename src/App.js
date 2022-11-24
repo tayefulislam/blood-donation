@@ -17,6 +17,7 @@ import RecentRequests from "./Pages/Home/RecentRequests/RecentRequests";
 import RequestDetails from "./Pages/Shared/RequestDetails/RequestDetails";
 import ManagerUsers from "./Pages/Admin/ManageUsers/ManagerUsers";
 import ManageRequest from "./Pages/Admin/ManageRequest";
+import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 // import ManageUsers from './Pages/Admin/ManageUsers/ManageUsers';
 
 function App() {
@@ -89,10 +90,11 @@ function App() {
           }
         ></Route>
 
-        {/* login and register */}
+        {/* login , register and reset*/}
 
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
+        <Route path="/reset" element={<ResetPassword></ResetPassword>}></Route>
       </Routes>
 
       <ToastContainer />
