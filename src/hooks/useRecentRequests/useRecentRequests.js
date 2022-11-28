@@ -2,12 +2,14 @@
 import { useQuery } from "react-query";
 
 const useRecentRequests = (district, bloodGroup) => {
+  console.log(district);
   const url = `http://localhost:5000/api/v1/bloodRequest?group=${encodeURIComponent(
     bloodGroup
   )}&district=${district}`;
 
-  const { isLoading, data, refetch } = useQuery("recent-requests", () =>
-    fetch(url).then((res) => res.json())
+  const { isLoading, data, refetch } = useQuery(
+    `recent-requests+${district}`,
+    () => fetch(url).then((res) => res.json())
   );
 
   // console.log(data)

@@ -9,6 +9,10 @@ const RecentRequests = () => {
   const [district, setDistrict] = useState("");
   const [bloodGroup, setBloodGroup] = useState("");
   const { data, isLoading, refetch } = useRecentRequests(district, bloodGroup);
+
+  console.log(district);
+  console.log(bloodGroup);
+
   useEffect(() => {
     refetch();
   }, [district, bloodGroup]);
@@ -18,16 +22,14 @@ const RecentRequests = () => {
   //   }
 
   //   console.log(data);
-  console.log(district);
-  console.log(bloodGroup);
 
   return (
-    <div>
+    <div className="text-red-500">
       <h1 className="text-center text-2xl font-bold my-4">Recent Requests</h1>
       <div className="card-body items-center text-center">
         <select
           onClick={(event) => setBloodGroup(event.target.value)}
-          className="select select-error w-full text-black max-w-xs"
+          className="select select-error w-full  max-w-xs"
         >
           <option value="" selected>
             All Group
@@ -54,14 +56,15 @@ const RecentRequests = () => {
         </select>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-2">
-        {isLoading && <Loading></Loading>}
+      {isLoading && <Loading></Loading>}
 
-        {data.length === 0 && (
-          <div className="text-center text-red-500 font-semibold">
-            <p>No match request found !</p>
-          </div>
-        )}
+      {data?.length === 0 && (
+        <div className="text-center text-red-500 font-semibold">
+          <p>No match request found !</p>
+        </div>
+      )}
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-2">
         {data?.map((request, index) => (
           <RequestDetails request={request} key={index}></RequestDetails>
         ))}

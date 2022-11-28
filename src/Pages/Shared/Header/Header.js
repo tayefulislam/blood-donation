@@ -63,7 +63,8 @@ const Header = () => {
           to={user ? "/dashboard" : "/"}
           class="btn btn-ghost normal-case text-xl"
         >
-          <i class="fa-solid fa-droplet text-red-600 mx-1"></i> Donate
+          <i class="fa-solid fa-droplet text-red-600 mx-1"></i>
+          Donate
         </Link>
       </div>
       <div class="navbar-center hidden lg:flex">

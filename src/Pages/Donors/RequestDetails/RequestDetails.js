@@ -7,7 +7,7 @@ const RequestDetails = ({ request }) => {
     request;
 
   return (
-    <div class="card w-full bg-red-500 text-neutral-content">
+    <div class="card w-full bg-red-500 text-white">
       <div class="card-body items-center text-center">
         <h2 class="card-title">Blood For {patient}</h2>
         <p>Blood Group : {group}</p>

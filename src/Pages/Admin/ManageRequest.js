@@ -4,7 +4,7 @@ import Loading from "../Shared/Loading/Loading";
 import SingleRequest from "./SingleRequest";
 
 const ManageRequest = () => {
-  const { data, isLoading } = useRecentRequests();
+  const { data, isLoading } = useRecentRequests("", "");
 
   console.log(data);
   return (
