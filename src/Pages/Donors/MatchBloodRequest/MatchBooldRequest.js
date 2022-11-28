@@ -45,6 +45,11 @@ const MatchBooldRequest = () => {
 
   return (
     <>
+      <div>
+        <h1 className="text-center text-xl font-semibold my-2">
+          Match Blood Request
+        </h1>
+      </div>
       {requests?.length === 0 && (
         <div>
           <h1 className="text-center text-semibold text-red-600">
