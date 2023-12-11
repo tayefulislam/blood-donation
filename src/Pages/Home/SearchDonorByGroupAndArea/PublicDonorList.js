@@ -1,6 +1,7 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { QueryClient, QueryClientProvider, useQuery } from "react-query";
+import PublicDonorDetails from "./PublicDonorDetails";
 
 const PublicDonorList = () => {
   const { bloodGroup, donorArea } = useParams();
@@ -20,8 +21,9 @@ const PublicDonorList = () => {
 
   return (
     <div>
-      <h1>{bloodGroup}</h1>
-      <h1>{donorArea}</h1>
+      {data?.map((donor, key) => (
+        <PublicDonorDetails donor={donor} key={donor?._id}></PublicDonorDetails>
+      ))}
     </div>
   );
 };

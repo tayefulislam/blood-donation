@@ -64,6 +64,7 @@ const MakeBloodRequest = () => {
       if (response.status === 200) {
         navigate(`/requestDetails/${response.data._id}`);
         toast.success(`Your Request for ${type} successfully placed`);
+        toast.success(`${type} এর জন্য আপনার অনুরোধ সফলভাবে রাখা হয়েছে`);
 
         event.target.reset();
       }
@@ -72,18 +73,21 @@ const MakeBloodRequest = () => {
   return (
     <div className="flex justify-center items-center">
       <div className="card w-96">
+        <h1 className="text-center text-2xl font-bold">
+          রক্তদানের জন্য অনুরোধ
+        </h1>
         <h1 className="text-center text-2xl font-bold">Make Blood Request</h1>
 
         <div className="card-body">
           <form onSubmit={handleRequest}>
             <div class="form-control w-full max-w-xs">
               <label class="label">
-                <span class="label-text">Patient Name :</span>
+                <span class="label-text">রোগীর নাম (Patient Name ) :</span>
               </label>
               <input
                 type="text"
                 required
-                placeholder="Patient Name"
+                placeholder="রোগীর নাম (Patient Name )"
                 name="patient"
                 class="input input-bordered input-error w-full max-w-xs"
               />
@@ -92,12 +96,12 @@ const MakeBloodRequest = () => {
 
             <div class="form-control w-full max-w-xs">
               <label class="label">
-                <span class="label-text">Comment:</span>
+                <span class="label-text">মন্তব্য করুন (Comment):</span>
               </label>
               <textarea
                 type="text"
                 required
-                placeholder="Comment"
+                placeholder="আপনার কোন মন্তব্য থাকলে এখানে লিখুন (Comment)"
                 name="comment"
                 class="input input-bordered input-error w-full max-w-xs"
               />
@@ -105,12 +109,12 @@ const MakeBloodRequest = () => {
             </div>
             <div class="form-control w-full max-w-xs">
               <label class="label">
-                <span class="label-text">Medical Name:</span>
+                <span class="label-text">মেডিকেলের নাম (Medical Name):</span>
               </label>
               <input
                 type="text"
                 required
-                placeholder="Medical Name"
+                placeholder="মেডিকেলের নাম (Medical Name) "
                 name="medical"
                 class="input input-bordered input-error w-full max-w-xs"
               />
@@ -118,12 +122,12 @@ const MakeBloodRequest = () => {
             </div>
             <div class="form-control w-full max-w-xs">
               <label class="label">
-                <span class="label-text">Phone Number:</span>
+                <span class="label-text">ফোন নম্বর (Phone Number):</span>
               </label>
               <input
                 type="number"
                 required
-                placeholder="Phone Number"
+                placeholder="ফোন নম্বর (Phone Number)"
                 name="number"
                 class="input input-bordered input-error w-full max-w-xs"
               />
@@ -131,12 +135,14 @@ const MakeBloodRequest = () => {
             </div>
             <div class="form-control w-full max-w-xs">
               <label class="label">
-                <span class="label-text">Units/Blood Bag?</span>
+                <span class="label-text">
+                  ইউনিট/ব্লাড ব্যাগ (Units/Blood Bag?)
+                </span>
               </label>
               <input
                 type="number"
                 required
-                placeholder="Units/Blood Bag"
+                placeholder=" ইউনিট/ব্লাড ব্যাগ - Units/Blood Bag"
                 name="unit"
                 class="input input-bordered input-error w-full max-w-xs"
               />
@@ -144,7 +150,9 @@ const MakeBloodRequest = () => {
             </div>
             <div class="form-control w-full max-w-xs">
               <label class="label">
-                <span class="label-text">Blood Group Required :</span>
+                <span class="label-text">
+                  রক্তের গ্রুপ (Blood Group Required ):
+                </span>
               </label>
 
               <select
@@ -153,7 +161,7 @@ const MakeBloodRequest = () => {
                 class="select select-error w-full max-w-xs"
               >
                 <option disabled selected>
-                  Select Blood Group
+                  রক্তের গ্রুপ নির্বাচন করুন / Select Blood Group
                 </option>
                 <option value="A POSITIVE(+)">A+ (A POSITIVE)</option>
                 <option value="A NEGATIVE(-)">A- (A NEGATIVE)</option>
@@ -170,7 +178,9 @@ const MakeBloodRequest = () => {
             </div>
             <div class="form-control w-full max-w-xs">
               <label class="label">
-                <span class="label-text">Blood Donation Date :</span>
+                <span class="label-text">
+                  রক্তদানের তারিখ (Blood Donation Date) :
+                </span>
               </label>
               <input
                 type="date"
@@ -183,12 +193,14 @@ const MakeBloodRequest = () => {
             </div>
             <div class="form-control w-full max-w-xs">
               <label class="label">
-                <span class="label-text">Blood Donation Time :</span>
+                <span class="label-text">
+                  রক্তদানের সময় ( Blood Donation Time) :
+                </span>
               </label>
               <input
                 type="time"
                 required
-                placeholder="Blood Donation Time"
+                placeholder="রক্তদানের সময় ( Blood Donation Time)"
                 name="time"
                 class="input input-bordered input-error w-full max-w-xs"
               />
@@ -196,17 +208,17 @@ const MakeBloodRequest = () => {
             </div>
             <div class="form-control w-full max-w-xs">
               <label class="label">
-                <span class="label-text">Requirement :</span>
+                <span class="label-text">প্রয়োজনীয়তা (Requirement) :</span>
               </label>
               <select name="type" class="select select-error w-full max-w-xs">
-                <option value="blood">Blood</option>
-                <option value="platelets">Platelets</option>
-                <option value="plasma">Plasma</option>
+                <option value="blood">Blood - রক্ত</option>
+                <option value="platelets">Platelets - প্লেটলেট</option>
+                <option value="plasma">Plasma - প্লাজমা </option>
               </select>
             </div>
             <div class="form-control w-full max-w-xs">
               <label class="label">
-                <span class="label-text">District * :</span>
+                <span class="label-text">জেলা (District) * :</span>
               </label>
 
               <select
@@ -220,12 +232,12 @@ const MakeBloodRequest = () => {
             </div>
             <div class="form-control w-full max-w-xs">
               <label class="label">
-                <span class="label-text">Area :</span>
+                <span class="label-text">এলাকা (Area ) :</span>
               </label>
               <textarea
                 type="text"
                 required
-                placeholder="Area"
+                placeholder="এলাকা (Area)"
                 name="area"
                 class="input input-bordered input-error w-full max-w-xs"
               />
@@ -233,7 +245,7 @@ const MakeBloodRequest = () => {
             </div>
 
             <div className="flex justify-center items-center">
-              <input className="btn" type="submit" value="Submit" />
+              <input className="btn" type="submit" value="জমা দিন / Submit" />
             </div>
           </form>
         </div>

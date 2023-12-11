@@ -32,18 +32,18 @@ const Login = () => {
   return (
     <div className="flex justify-center items-center">
       <div className="card w-96">
-        <h1 className="text-center text-2xl font-bold">Login</h1>
+        <h1 className="text-center text-2xl font-bold">লগইন / LOGIN </h1>
 
         <div className="card-body">
           <form onSubmit={handleLogin}>
             <div class="form-control w-full max-w-xs">
               <label class="label">
-                <span class="label-text">Email</span>
+                <span class="label-text">ইমেইল (Email )</span>
               </label>
               <input
                 type="email"
                 required
-                placeholder="Email Address"
+                placeholder="ইমেল ঠিকানা লিখুন ( Email Address )"
                 name="email"
                 class="input input-bordered input-error w-full max-w-xs"
               />
@@ -51,12 +51,12 @@ const Login = () => {
             </div>
             <div class="form-control w-full max-w-xs">
               <label class="label">
-                <span class="label-text">Password</span>
+                <span class="label-text">পাসওয়ার্ড (Password)</span>
               </label>
               <input
                 type="password"
                 required
-                placeholder="Password"
+                placeholder="পাসওয়ার্ড লিখুন ( Password )"
                 name="password"
                 class="input input-bordered input-error w-full max-w-xs"
               />
@@ -67,7 +67,7 @@ const Login = () => {
             </div>
 
             <div className="flex justify-center items-center">
-              <input className="btn" type="submit" value="Login" />
+              <input className="btn" type="submit" value="লগইন / Login" />
             </div>
           </form>
 
@@ -75,13 +75,13 @@ const Login = () => {
             <p>
               Reset :{" "}
               <Link className="text-red-400" to="/reset">
-                Password
+                Password / পাসওয়ার্ড রিসেট করুন
               </Link>
             </p>
-            <p>
-              Became A Donor :{" "}
+            <p className="py-3">
+              একজন রক্তদাতা হন ( Became A Donor) :{" "}
               <Link className="text-red-400" to="/register">
-                Register
+                নিবন্ধন করুন (Register)
               </Link>
             </p>
           </div>
