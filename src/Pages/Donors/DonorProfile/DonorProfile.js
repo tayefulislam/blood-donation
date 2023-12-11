@@ -10,7 +10,7 @@ const DonorProfile = () => {
   const [user, loading, error] = useAuthState(auth);
 
   // console.log(user)
-  const url = `https://blooddonationmvc.onrender.com/api/v1/donors/${user?.email}`;
+  const url = `https://apis.bluespacejp.com/api/v1/donors/${user?.email}`;
 
   const { isLoading, data, refetch } = useQuery(`${user?.email}`, () =>
     fetch(url).then((res) => res.json())
@@ -27,11 +27,11 @@ const DonorProfile = () => {
 
     // comvert date
 
-    // const getDate = parseISO(event.target.date.value);
+    // const getDate = parseISO(event?.target?.lastDonation?.value);
 
-    // const stringDate = format(getDate || new Date(), 'PP')
+    // const stringDate = format(getDate || new Date(), "PP");
 
-    // console.log(stringDate)
+    // console.log(stringDate);
 
     const name = event.target.name.value;
     const email = event.target.email.value;
@@ -41,14 +41,22 @@ const DonorProfile = () => {
 
     const district = event.target.district.value;
     const area = event.target.area.value;
+    // const date = event.target.lastDonation.value;
 
     // new blood request
     // const updatedProfile = { name, email, number, group, date: stringDate, district, area }
-    const updatedProfile = { name, email, number, group, district, area };
+    const updatedProfile = {
+      name,
+      email,
+      number,
+      group,
+      district,
+      area,
+    };
 
     console.log(updatedProfile);
 
-    const url = `https://blooddonationmvc.onrender.com/api/v1/donors/`;
+    const url = `https://apis.bluespacejp.com/api/v1/donors/`;
 
     fetch(url, {
       method: "PATCH",
@@ -59,8 +67,6 @@ const DonorProfile = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("line 62", data);
-
         if (data?.modifiedCount > 0) {
           toast.success("Your Profile Updated");
           refetch();
@@ -161,6 +167,22 @@ const DonorProfile = () => {
 
               <label class="label"></label>
             </div>
+
+            {/* <div class="form-control w-full max-w-xs">
+              <label class="label">
+                <span class="label-text">
+                  Last Blood Donation Date:{" "}
+                  {data?.lastDonation && <p>{data?.lastDonation}</p>}
+                </span>
+              </label>
+              <input
+                type="date"
+                placeholder="Blood Donation Time"
+                name="lastDonation"
+                class="input input-bordered input-error w-full max-w-xs"
+              />
+              <label class="label"></label>
+            </div> */}
 
             {/* <div class="form-control w-full max-w-xs">
                             <label class="label">

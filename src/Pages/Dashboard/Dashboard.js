@@ -13,14 +13,14 @@ const Dashboard = () => {
   const navigate = useNavigate();
   // console.log("user", user);
 
-  const usersUrl = `https://blooddonationmvc.onrender.com/api/v1/donors/${user?.email}`;
+  const usersUrl = `https://apis.bluespacejp.com/api/v1/donors/${user?.email}`;
   const {
     isLoading,
     error: dataError,
     data,
   } = useQuery("allusers", () => fetch(usersUrl).then((res) => res.json()));
 
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="">

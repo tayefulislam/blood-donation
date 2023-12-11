@@ -39,7 +39,7 @@ const ManagerUsers = () => {
   const [userModal, setUser] = useState("");
 
   const makeAdmin = (userEmail) => {
-    const url = `https://blooddonationmvc.onrender.com/api/v1/donors/${userEmail}`;
+    const url = `https://apis.bluespacejp.com/api/v1/donors/${userEmail}`;
 
     axios.patch(url).then(function (response) {
       console.log(response);

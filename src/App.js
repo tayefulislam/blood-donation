@@ -18,6 +18,9 @@ import RequestDetails from "./Pages/Shared/RequestDetails/RequestDetails";
 import ManagerUsers from "./Pages/Admin/ManageUsers/ManagerUsers";
 import ManageRequest from "./Pages/Admin/ManageRequest";
 import ResetPassword from "./Pages/ResetPassword/ResetPassword";
+import SearchDonorByGroupAndArea from "./Pages/Home/SearchDonorByGroupAndArea/SelectGroup_SearchDonorByGroupAndArea";
+import SelectGroup_SearchDonorByGroupAndArea from "./Pages/Home/SearchDonorByGroupAndArea/SelectGroup_SearchDonorByGroupAndArea";
+import SelectArea_SearchDonorByGroupAndArea from "./Pages/Home/SearchDonorByGroupAndArea/SelectArea_SearchDonorByGroupAndArea";
 // import ManageUsers from './Pages/Admin/ManageUsers/ManageUsers';
 
 function App() {
@@ -41,6 +44,18 @@ function App() {
         <Route
           path="/requestDetails/:reqId"
           element={<RequestDetails></RequestDetails>}
+        ></Route>
+        <Route
+          path="/selectBloodGroup/"
+          element={
+            <SelectGroup_SearchDonorByGroupAndArea></SelectGroup_SearchDonorByGroupAndArea>
+          }
+        ></Route>
+        <Route
+          path="/selectArea/:bloodGroup"
+          element={
+            <SelectArea_SearchDonorByGroupAndArea></SelectArea_SearchDonorByGroupAndArea>
+          }
         ></Route>
 
         {/* admin and donor */}

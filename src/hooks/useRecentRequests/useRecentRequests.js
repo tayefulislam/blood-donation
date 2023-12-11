@@ -3,7 +3,7 @@ import { useQuery } from "react-query";
 
 const useRecentRequests = (district, bloodGroup) => {
   console.log(district);
-  const url = `https://blooddonationmvc.onrender.com/api/v1/bloodRequest?group=${encodeURIComponent(
+  const url = `https://apis.bluespacejp.com/api/v1/bloodRequest?group=${encodeURIComponent(
     bloodGroup
   )}&district=${district}`;
 
