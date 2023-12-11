@@ -21,6 +21,7 @@ import ResetPassword from "./Pages/ResetPassword/ResetPassword";
 import SearchDonorByGroupAndArea from "./Pages/Home/SearchDonorByGroupAndArea/SelectGroup_SearchDonorByGroupAndArea";
 import SelectGroup_SearchDonorByGroupAndArea from "./Pages/Home/SearchDonorByGroupAndArea/SelectGroup_SearchDonorByGroupAndArea";
 import SelectArea_SearchDonorByGroupAndArea from "./Pages/Home/SearchDonorByGroupAndArea/SelectArea_SearchDonorByGroupAndArea";
+import PublicDonorList from "./Pages/Home/SearchDonorByGroupAndArea/PublicDonorList";
 // import ManageUsers from './Pages/Admin/ManageUsers/ManageUsers';
 
 function App() {
@@ -56,6 +57,10 @@ function App() {
           element={
             <SelectArea_SearchDonorByGroupAndArea></SelectArea_SearchDonorByGroupAndArea>
           }
+        ></Route>
+        <Route
+          path="/selectArea/:bloodGroup/:donorArea"
+          element={<PublicDonorList></PublicDonorList>}
         ></Route>
 
         {/* admin and donor */}

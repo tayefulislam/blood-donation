@@ -1,4 +1,5 @@
 import React from "react";
+import { Link, useParams } from "react-router-dom";
 
 const SelectArea_SearchDonorByGroupAndArea = () => {
   const districtName = [
@@ -247,9 +248,29 @@ const SelectArea_SearchDonorByGroupAndArea = () => {
       value: "Thakurgaon",
     },
   ];
+
+  let { bloodGroup } = useParams();
+  console.log(bloodGroup);
+
   return (
-    <div>
-      <h1>test</h1>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-2">
+      <div>
+        <h1 className="text-center font-extrabold text-2xl py-3">
+          Select Blood Group <br />
+          রক্তের গ্রুপ নির্বাচন করুন
+        </h1>
+      </div>
+
+      {districtName?.map((group) => (
+        <Link
+          to={`/selectArea/${bloodGroup}/${group?.value}`}
+          className="card w-96 bg-red-500 text-neutral-content"
+        >
+          <div className="card-body items-center text-center">
+            <h2 className="card-title">{group.name}</h2>
+          </div>
+        </Link>
+      ))}
     </div>
   );
 };
