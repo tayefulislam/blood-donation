@@ -26,7 +26,7 @@ const MENU = () => {
           className="card w-full bg-red-500 text-neutral-content"
         >
           <div className="card-body items-center text-center">
-            <h2 className="card-title">App Credit</h2>
+            <h2 className="card-title">App Credits</h2>
           </div>
         </Link>
       </div>
