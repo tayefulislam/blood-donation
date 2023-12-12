@@ -1,7 +1,18 @@
 import React from "react";
+import { toast } from "react-toastify";
 
 const PublicDonorDetails = ({ donor }) => {
   console.log(donor);
+
+  // Copy Donor Phone Number
+  const copyDonorNumber = (number) => {
+    navigator.clipboard.writeText(number);
+
+    toast.success(
+      "দাতার ফোন নম্বর ইতিমধ্যে কপি সম্পন্ন হয়েছে / The donor's phone number has already been copied "
+    );
+  };
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-2">
       <div className=" text-lg font-semibold">
@@ -29,9 +40,11 @@ const PublicDonorDetails = ({ donor }) => {
             </h1>
           </div>
 
-          <button className="btn btn-outline btn-success mx-6 ">
-            <a href={`tel:${donor?.number}`}>Call Donor</a>
-            <img src="/callicon.png" />
+          <button
+            onClick={() => copyDonorNumber(donor?.number)}
+            className="btn btn-outline btn-success mx-6 "
+          >
+            Copy Donor Phone Number <br /> দাতার ফোন নম্বর কপি করুন
           </button>
         </div>
       </div>

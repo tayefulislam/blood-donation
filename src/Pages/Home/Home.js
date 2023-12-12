@@ -32,25 +32,9 @@ const Home = () => {
             <h2 class="card-title">Donor List</h2>
           </div>
         </div>
-
         <div
-          onClick={() => navigate("/register")}
+          onClick={() => navigate("/recentRequests/")}
           class="card w-full bg-red-500 shadow-xl text-white"
-        >
-          <figure class="px-10 pt-10">
-            <i class="fa-solid fa-users-between-lines"></i>
-          </figure>
-          <div class="card-body items-center text-center">
-            <h2 class="card-title">রক্তদাতা হয়ে উঠুন</h2>
-            <h2 class="card-title">Became A Donor</h2>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex justify-center items-center mt-12">
-        <div
-          onClick={() => navigate("/recentRequests")}
-          class="card w-96 bg-red-500 shadow-xl text-white"
         >
           <figure class="px-10 pt-10">
             <i class="fa-solid fa-users-between-lines"></i>
@@ -61,16 +45,18 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center mt-12">
+
+      <div className="flex justify-center items-center mt-12 gap-2 mx-2">
         <div
-          onClick={() => navigate("/login")}
-          class="card w-36 bg-red-500 shadow-xl text-white"
+          onClick={() => navigate("/addDonor")}
+          class="card w-96 bg-red-500 shadow-xl text-white"
         >
-          {/* <figure class="px-10 pt-10">
-            <i class="fa-solid fa-arrow-right-to-bracket"></i>
-          </figure> */}
+          <figure class="px-10 pt-10">
+            <i class="fa-solid fa-users-between-lines"></i>
+          </figure>
           <div class="card-body items-center text-center">
-            <h2 class="card-title">Menu</h2>
+            <h2 class="card-title">রক্তদাতা হয়ে উঠুন</h2>
+            <h2 class="card-title">Became A Donor</h2>
           </div>
         </div>
       </div>

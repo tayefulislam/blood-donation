@@ -50,7 +50,7 @@ const SelectGroup_SearchDonorByGroupAndArea = () => {
         {groupName?.map((group) => (
           <Link
             to={`/selectArea/${group?.value}`}
-            className="card w-96 bg-red-500 text-neutral-content"
+            className="card w-full bg-red-500 text-neutral-content"
           >
             <div className="card-body items-center text-center">
               <h2 className="card-title">{group.name}</h2>

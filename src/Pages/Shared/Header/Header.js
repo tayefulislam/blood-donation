@@ -101,9 +101,14 @@ const Header = () => {
           </div>
         )}
 
-        {!user && (
+        {/* {!user && (
           <Link className="text-xl font-semibold text-red-500 mx-1" to="/login">
             লগইন-LOGIN
+          </Link>
+        )} */}
+        {!user && (
+          <Link className="text-xl font-semibold text-red-500 mx-1" to="/menu">
+            মেনু - MENU
           </Link>
         )}
       </div>
