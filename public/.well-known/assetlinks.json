@@ -1,0 +1,11 @@
+[
+    {
+      "relation": ["delegate_permission/common.handle_all_urls"],
+      "target": {
+        "namespace": "android_app",
+        "package_name": "com.bluespacetech.blooddonationbdroktokhujun",
+        "sha256_cert_fingerprints":
+          ["AB:04:66:14:CB:65:1F:E0:0D:55:D9:3C:06:BB:87:F7:58:C6:B6:32:D6:DC:48:EF:88:7F:A6:95:1F:D4:61:8B"]
+      }
+    }
+  ]

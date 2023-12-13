@@ -265,6 +265,7 @@ const AddDonor = () => {
     const group = event.target.group.value;
     const district = event.target.district.value;
     const area = event.target.area.value;
+    const gender = event.target.gender.value;
 
     const newDonor = {
       name,
@@ -274,12 +275,16 @@ const AddDonor = () => {
       district,
       area,
       lastDonation: stringDate,
+      gender,
     };
 
-    const url = `https://apis.bluespacejp.com/api/v1/donors/`;
+    console.log(newDonor);
+
+    const url = `https://apis.bluespacejp.com/api/v2/publicDonors`;
 
     fetch(url, {
-      method: "PATCH",
+      method: "POST",
+
       headers: {
         "Content-Type": "application/json",
       },
@@ -287,11 +292,25 @@ const AddDonor = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data?.modifiedCount > 0) {
-          toast.success("Your Profile Updated");
+        if (data?.name) {
+          toast.success(
+            "রক্তদাতা হিসাবে আপনার তথ্য ডাটাবেসে সফলভাবে জমা  হয়েছে / Your Info as a blood donor submitted successfully in database "
+          );
         }
-        if (data?.upsertedCount > 0) {
-          toast.success("Your Profile Create in Blood Donation Database");
+        // if (data?.upsertedCount > 0) {
+        //   toast.success("Donor Info successfully submitted");
+        // }
+
+        if (data?.error.includes("E11000")) {
+          return toast.error(
+            "রক্তদাতা হিসাবে আপনার তথ্য ইতিমধ্যেই আমাদের ডাটাবেসে উপলব্ধ। / Your Info as a blood donor already available in our database. "
+          );
+        }
+
+        if (data?.status === "failed") {
+          toast?.error(
+            "রক্তদাতা হিসাবে আপনার তথ্য জমা দেওয়া ব্যর্থ হয়েছে / Your Info as a blood donor submitted unsuccessful"
+          );
         }
 
         console.log(data);

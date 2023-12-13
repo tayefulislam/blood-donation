@@ -22,7 +22,7 @@ import SearchDonorByGroupAndArea from "./Pages/Home/SearchDonorByGroupAndArea/Se
 import SelectGroup_SearchDonorByGroupAndArea from "./Pages/Home/SearchDonorByGroupAndArea/SelectGroup_SearchDonorByGroupAndArea";
 import SelectArea_SearchDonorByGroupAndArea from "./Pages/Home/SearchDonorByGroupAndArea/SelectArea_SearchDonorByGroupAndArea";
 import PublicDonorList from "./Pages/Home/SearchDonorByGroupAndArea/PublicDonorList";
-import AddDonor from "./Pages/Admin/AddDonor/AddDonor";
+import AddDonor from "./Pages/User/AddDonor/AddDonor";
 import MENU from "./Pages/Shared/MENU/MENU";
 import ContactUs from "./Pages/Home/ContactUs/ContactUs";
 import PrivacyPolicy from "./Pages/Home/PrivacyPolicy/PrivacyPolicy";
@@ -44,6 +44,7 @@ function App() {
           element={<PrivacyPolicy></PrivacyPolicy>}
         ></Route>
 
+        {/* <Route path="/addDonor" element={<}></Route> */}
         <Route path="/addDonor" element={<AddDonor></AddDonor>}></Route>
 
         <Route

@@ -14,7 +14,7 @@ const PublicDonorDetails = ({ donor }) => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-2">
+    <div>
       <div className=" text-lg font-semibold">
         <div className="card w-full border-2 py-4	 border-red-400 text-black t">
           <div className="text-center text-lg font-semibold">
