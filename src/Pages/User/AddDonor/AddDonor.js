@@ -293,6 +293,7 @@ const AddDonor = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data?.name) {
+          event.target.reset();
           toast.success(
             "রক্তদাতা হিসাবে আপনার তথ্য ডাটাবেসে সফলভাবে জমা  হয়েছে / Your Info as a blood donor submitted successfully in database "
           );
