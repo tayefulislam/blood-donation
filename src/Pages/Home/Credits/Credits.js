@@ -18,6 +18,7 @@ const Credits = () => {
           <h1 className="text-lg text-center">Develop By </h1>
           <h1 className="text-xl text-center">Team : BlueSpace Tech</h1>
           <h1 className=" text-center">Email : bluespacetech12@gmail.com</h1>
+          <h1 className=" text-center">Kazi Tayeful Islam</h1>
 
           <p>
             Information : All information collected from users. So, all info

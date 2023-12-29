@@ -48,7 +48,7 @@ const PublicDonorList = () => {
         ))}
       </div>
       {data?.length === 0 && (
-        <div className=" py-[30px] text-lg px-3 ">
+        <div className=" py-[30px] text-lg px-3  ">
           <h1 className="text-center">{`দুঃখিত! ${donorArea} জেলায় ${bloodGroup} রক্ত গ্রুপে কোন ডোনার খুঁজে পাওয়া যায়নি ।`}</h1>
           <h1 className="text-center pt-2">{`Sorry! No donor of ${bloodGroup} blood group was found in ${donorArea} district.`}</h1>
         </div>

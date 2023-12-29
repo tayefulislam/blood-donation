@@ -16,7 +16,7 @@ const PublicDonorDetails = ({ donor }) => {
   return (
     <div>
       <div className=" text-lg font-semibold">
-        <div className="card w-full border-2 py-4	 border-red-400 text-black t">
+        <div className="card w-full border-2 py-4	 border-red-400 bg-white-500 text-black ">
           <div className="text-center text-lg font-semibold">
             <h2 className="">
               নাম / Name : <br /> {donor?.name}

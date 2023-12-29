@@ -271,6 +271,9 @@ const RecentRequests = () => {
 
   return (
     <div className="text-red-500">
+      <h1 className="text-center text-2xl font-bold my-4">
+        সাম্প্রতিক রক্তদানের অনুরোধ
+      </h1>
       <h1 className="text-center text-2xl font-bold my-4">Recent Requests</h1>
       <div className="card-body items-center text-center">
         <select
@@ -278,7 +281,10 @@ const RecentRequests = () => {
           className="select select-error w-full  max-w-xs"
         >
           <option value="" selected>
-            All Group
+            রক্তের গ্রুপ নির্বাচন করুন / Select Blood Group
+          </option>
+          <option value="" selected>
+            সব রক্তের গ্রুপ / All Blood Group
           </option>
           <option value="A POSITIVE(+)">A POSITIVE(+)</option>
           <option value="A NEGATIVE(-)">A NEGATIVE(-)</option>
@@ -295,7 +301,7 @@ const RecentRequests = () => {
           className="select select-error w-full max-w-xs"
         >
           <option value="" selected>
-            All District
+            সব জেলা / All District
           </option>
 
           {districtName.map((disName) => (

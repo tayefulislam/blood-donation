@@ -297,7 +297,13 @@ const AddDonor = () => {
           toast.success(
             "রক্তদাতা হিসাবে আপনার তথ্য ডাটাবেসে সফলভাবে জমা  হয়েছে / Your Info as a blood donor submitted successfully in database "
           );
+          if (newDonor.gender === "female") {
+            toast.error(
+              `"${newDonor.name}" As a female donor, your donor information will not available in the donor list for security purposes.  / "${newDonor.name}" একজন মহিলা দাতা হিসেবে, নিরাপত্তার স্বার্থে আপনার  তথ্য দাতা তালিকায় থাকবে না ।`
+            );
+          }
         }
+
         // if (data?.upsertedCount > 0) {
         //   toast.success("Donor Info successfully submitted");
         // }
@@ -503,6 +509,14 @@ const AddDonor = () => {
                   class="input input-bordered input-error w-full max-w-xs"
                 />
                 <label class="label"></label>
+              </div>
+
+              <div>
+                <h1 className="text-center font-bold  text-xs py-3 flex justify-center items-center">
+                  For security reasons, female donors information will not
+                  available in donor list. <br />
+                  নিরাপত্তার কারণে নারী দাতাদের তথ্য দাতা তালিকায় থাকবে না।
+                </h1>
               </div>
 
               <div className="flex justify-center items-center">

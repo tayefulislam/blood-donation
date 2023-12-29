@@ -266,7 +266,7 @@ const SelectArea_SearchDonorByGroupAndArea = () => {
         {districtName?.map((group) => (
           <Link
             to={`/selectArea/${bloodGroup}/${group?.value}`}
-            className="card w-full bg-red-500 text-neutral-content"
+            className="card w-full bg-red-500 text-white"
           >
             <div className="card-body items-center text-center">
               <h2 className="card-title">{group?.name}</h2>

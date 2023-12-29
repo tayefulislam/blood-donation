@@ -2,6 +2,7 @@
 
 # server side
 /blood-donation-server
+/blood-donation.7z
 # dependencies
 /node_modules
 /.pnp
