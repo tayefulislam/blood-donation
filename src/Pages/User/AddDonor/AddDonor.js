@@ -328,10 +328,13 @@ const AddDonor = () => {
     <div>
       <div className="flex justify-center items-center">
         <div className="card w-96">
-          <h1 className="text-center text-lg font-bold">
+          <h1 className="text-center text-xl font-bold py-2">
+            Blood DonationBD - রক্ত খুঁজুন
+          </h1>
+          <h1 className="text-center text-md font-bold">
             নতুন রক্তদাতা হয়ে উঠুন
           </h1>
-          <h1 className="text-center text-lg font-bold">
+          <h1 className="text-center text-md font-bold">
             Became A New Blood Donor
           </h1>
 
@@ -523,6 +526,21 @@ const AddDonor = () => {
                 <input className="btn" type="submit" value="Submit" />
               </div>
             </form>
+
+            <div>
+              <h1 className="text-center font-bold text-md  py-3">
+                <a
+                  className="text-red-400"
+                  href="https://play.google.com/store/apps/details?id=com.bluespacetech.blooddonationbdroktokhujun&hl=en&gl=US"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  অ্যাপ ডাউনলোড করুন / Download App <br />
+                  Google Play Store
+                </a>
+                <br />
+              </h1>
+            </div>
           </div>
         </div>
       </div>

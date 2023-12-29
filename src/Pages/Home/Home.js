@@ -14,6 +14,7 @@ const Home = () => {
           <figure class="px-10 pt-10">
             <i class="fa-solid fa-border-all"></i>
           </figure>
+
           <div class="card-body items-center text-center">
             <h2 class="card-title">রক্তদানের জন্য অনুরোধ</h2>
             <h2 class="card-title">Request For Blood</h2>
