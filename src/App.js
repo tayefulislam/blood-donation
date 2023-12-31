@@ -27,6 +27,7 @@ import MENU from "./Pages/Shared/MENU/MENU";
 import ContactUs from "./Pages/Home/ContactUs/ContactUs";
 import PrivacyPolicy from "./Pages/Home/PrivacyPolicy/PrivacyPolicy";
 import Credits from "./Pages/Home/Credits/Credits";
+import ChangeAreaOrLastDonationDate from "./Pages/User/ChangeAreaOrLastDonationDate/ChangeAreaOrLastDonationDate";
 // import ManageUsers from './Pages/Admin/ManageUsers/ManageUsers';
 
 function App() {
@@ -39,6 +40,12 @@ function App() {
         <Route path="/menu" element={<MENU></MENU>}></Route>
         <Route path="/contactUs" element={<ContactUs></ContactUs>}></Route>
         <Route path="/appCredit" element={<Credits></Credits>}></Route>
+        <Route
+          path="/changeAreaOrLastDonationDate"
+          element={
+            <ChangeAreaOrLastDonationDate></ChangeAreaOrLastDonationDate>
+          }
+        ></Route>
         <Route
           path="/privacyPolicy"
           element={<PrivacyPolicy></PrivacyPolicy>}
