@@ -6,7 +6,26 @@ const Home = () => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-2">
+      <div
+        className="font-semibold text-center
+      "
+      >
+        <div>
+          <h1>
+            Download <br /> Blood DonationBD - রক্ত খুঁজুন <br /> From Google
+            Play Store.
+          </h1>
+        </div>
+
+        <div className="flex justify-center items-center mt-4">
+          <a href="https://play.google.com/store/apps/details?id=com.bluespacetech.blooddonationbdroktokhujun&hl=en&gl=US">
+            {" "}
+            <img className="items-center" src="getItOnGooglePlay.png" />
+          </a>
+        </div>
+      </div>
+
+      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-2">
         <div
           onClick={() => navigate("/makeRequests")}
           class="card w-full bg-red-500 shadow-xl text-white"
@@ -60,7 +79,7 @@ const Home = () => {
             <h2 class="card-title">Became A Donor</h2>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

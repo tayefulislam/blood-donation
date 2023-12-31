@@ -16,7 +16,7 @@ function App() {
       <Header></Header>
 
       <Routes>
-        <Route path="/" element={<AddDonor></AddDonor>}></Route>
+        <Route path="/" element={<Home></Home>}></Route>
 
         {/* <Route path="/addDonor" element={<}></Route> */}
         <Route path="/addDonor" element={<AddDonor></AddDonor>}></Route>

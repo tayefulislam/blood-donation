@@ -1,8 +1,10 @@
 import React from "react";
 import { format, parseISO } from "date-fns";
 import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const AddDonor = () => {
+  const navigate = useNavigate();
   const districtName = [
     {
       name: "Bagerhat",
@@ -293,15 +295,16 @@ const AddDonor = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data?.name) {
+          navigate(`/AddDonorConfirmation`);
           event.target.reset();
-          toast.success(
-            "রক্তদাতা হিসাবে আপনার তথ্য ডাটাবেসে সফলভাবে জমা  হয়েছে / Your Info as a blood donor submitted successfully in database "
-          );
-          if (newDonor.gender === "female") {
-            toast.error(
-              `"${newDonor.name}" As a female donor, your donor information will not available in the donor list for security purposes.  / "${newDonor.name}" একজন মহিলা দাতা হিসেবে, নিরাপত্তার স্বার্থে আপনার  তথ্য দাতা তালিকায় থাকবে না ।`
-            );
-          }
+          // toast.success(
+          //   "রক্তদাতা হিসাবে আপনার তথ্য ডাটাবেসে সফলভাবে জমা  হয়েছে / Your Info as a blood donor submitted successfully in database "
+          // );
+          // if (newDonor.gender === "female") {
+          //   toast.error(
+          //     `"${newDonor.name}" As a female donor, your donor information will not available in the donor list for security purposes.  / "${newDonor.name}" একজন মহিলা দাতা হিসেবে, নিরাপত্তার স্বার্থে আপনার  তথ্য দাতা তালিকায় থাকবে না ।`
+          //   );
+          // }
         }
 
         // if (data?.upsertedCount > 0) {

@@ -21,6 +21,12 @@ const AddDonorConfirmation = () => {
           <br />
         </h1>
       </div>
+      <div className="flex justify-center items-center mt-4">
+        <a href="https://play.google.com/store/apps/details?id=com.bluespacetech.blooddonationbdroktokhujun&hl=en&gl=US">
+          {" "}
+          <img className="items-center" src="getItOnGooglePlay.png" />
+        </a>
+      </div>
     </div>
   );
 };
