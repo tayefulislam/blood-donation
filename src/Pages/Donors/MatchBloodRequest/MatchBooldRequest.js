@@ -10,7 +10,7 @@ const MatchBooldRequest = () => {
   const [user, loading, error] = useAuthState(auth);
   const navigate = useNavigate();
 
-  const url = `https://apis.bluespacejp.com/api/v1/donors/${user?.email}`;
+  const url = `${process.env.REACT_APP_apiHostLink}/api/v1/donors/${user?.email}`;
 
   const { isLoading, data, refetch } = useQuery(`${user?.email}`, () =>
     fetch(url).then((res) => res.json())
@@ -19,9 +19,11 @@ const MatchBooldRequest = () => {
 
   //encodeURIComponent('test+')
 
-  const urlquery = `https://apis.bluespacejp.com/api/v1/bloodRequest?group=${encodeURIComponent(
-    data?.group
-  )}&district=${data?.district}`;
+  const urlquery = `${
+    process.env.REACT_APP_apiHostLink
+  }/api/v1/bloodRequest?group=${encodeURIComponent(data?.group)}&district=${
+    data?.district
+  }`;
 
   // console.log(urlquery);
 

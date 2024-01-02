@@ -3,6 +3,9 @@
 # server side
 /blood-donation-server
 /blood-donation.7z
+.firebaserc
+/.firebase
+firebase.json
 # dependencies
 /node_modules
 /.pnp

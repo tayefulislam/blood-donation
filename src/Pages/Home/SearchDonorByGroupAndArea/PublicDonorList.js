@@ -11,7 +11,9 @@ const PublicDonorList = () => {
     `${bloodGroup}+{${donorArea}}`,
     () =>
       fetch(
-        `https://apis.bluespacejp.com/api/v2/publicDonors?district=${donorArea}&group=${encodeURIComponent(
+        `${
+          process.env.REACT_APP_apiHostLink
+        }/api/v2/publicDonors?district=${donorArea}&group=${encodeURIComponent(
           bloodGroup
         )}`
       ).then((res) => res.json())

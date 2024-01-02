@@ -15,7 +15,7 @@ const RequestDetails = () => {
     toast.success("URL Copied to clipboard");
   };
 
-  const url = `https://apis.bluespacejp.com/api/v1/bloodRequest/${params?.reqId}`;
+  const url = `${process.env.REACT_APP_apiHostLink}/api/v1/bloodRequest/${params?.reqId}`;
   console.log(url);
 
   const { isLoading, data } = useQuery(`${params?.reqId + "request"}`, () =>

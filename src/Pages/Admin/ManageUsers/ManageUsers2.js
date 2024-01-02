@@ -29,7 +29,7 @@ const ManageUsers = () => {
 
   const [userModal, setUser] = useState("");
 
-  const usersUrl = `https://apis.bluespacejp.com/api/v1/donors/admin/users`;
+  const usersUrl = `${process.env.REACT_APP_apiHostLink}/api/v1/donors/admin/users`;
   const { isLoading, error, data } = useQuery("allusers", () =>
     fetch(usersUrl).then((res) => res.json())
   );
@@ -39,7 +39,7 @@ const ManageUsers = () => {
   // console.log(data);
 
   const makeAdmin = (userEmail) => {
-    const url = `https://apis.bluespacejp.com/api/v1/donors/${userEmail}`;
+    const url = `${process.env.REACT_APP_apiHostLink}/api/v1/donors/${userEmail}`;
 
     axios.patch(url).then(function (response) {
       console.log(response);

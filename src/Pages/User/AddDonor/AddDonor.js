@@ -280,7 +280,7 @@ const AddDonor = () => {
 
     console.log(newDonor);
 
-    const url = `https://apis.bluespacejp.com/api/v2/publicDonors`;
+    const url = `${process.env.REACT_APP_apiHostLink}/api/v2/publicDonors`;
 
     fetch(url, {
       method: "POST",

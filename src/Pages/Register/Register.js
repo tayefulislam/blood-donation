@@ -32,7 +32,7 @@ const Register = () => {
 
     // const userNew = { email, name, password };
 
-    // const url = `https://apis.bluespacejp.com/api/v1/donors/createUser`;
+    // const url = `${process.env.REACT_APP_apiHostLink}/api/v1/donors/createUser`;
 
     // fetch(url, {
     //   method: "POST",

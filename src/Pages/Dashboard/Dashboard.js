@@ -13,7 +13,7 @@ const Dashboard = () => {
   const navigate = useNavigate();
   // console.log("user", user);
 
-  const usersUrl = `https://apis.bluespacejp.com/api/v1/donors/${user?.email}`;
+  const usersUrl = `${process.env.REACT_APP_apiHostLink}/api/v1/donors/${user?.email}`;
   const {
     isLoading,
     error: dataError,
