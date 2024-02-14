@@ -28,6 +28,7 @@ import ContactUs from "./Pages/Home/ContactUs/ContactUs";
 import PrivacyPolicy from "./Pages/Home/PrivacyPolicy/PrivacyPolicy";
 import Credits from "./Pages/Home/Credits/Credits";
 import ChangeAreaOrLastDonationDate from "./Pages/User/ChangeAreaOrLastDonationDate/ChangeAreaOrLastDonationDate";
+import UpdateLastDonationDate from "./Pages/User/ChangeAreaOrLastDonationDate/UpdateLastDonationDate";
 // import ManageUsers from './Pages/Admin/ManageUsers/ManageUsers';
 
 function App() {
@@ -45,6 +46,11 @@ function App() {
           element={
             <ChangeAreaOrLastDonationDate></ChangeAreaOrLastDonationDate>
           }
+        ></Route>
+
+        <Route
+          path="/updateLastDonationDate"
+          element={<UpdateLastDonationDate></UpdateLastDonationDate>}
         ></Route>
         <Route
           path="/privacyPolicy"

@@ -6,6 +6,14 @@ const MENU = () => {
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 mx-2">
         <Link
+          to="/updateLastDonationDate"
+          className="card w-full bg-red-500 text-white"
+        >
+          <div className="card-body items-center text-center">
+            <h2 className="card-title">Update Last Donation Date</h2>
+          </div>
+        </Link>
+        <Link
           to="/changeAreaOrLastDonationDate"
           className="card w-full bg-red-500 text-white"
         >
