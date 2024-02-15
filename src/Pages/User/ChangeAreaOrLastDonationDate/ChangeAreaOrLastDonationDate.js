@@ -254,13 +254,14 @@ const ChangeAreaOrLastDonationDate = () => {
     event.preventDefault();
     const number = event?.target?.number?.value;
     const district = event?.target?.district?.value;
+    const area = event?.target?.area?.value;
 
     // console.log({
     //   number,
     //   district,
     // });
 
-    const updateInfo = { number, district };
+    const updateInfo = { number, district, area };
 
     const url = `${process.env.REACT_APP_apiHostLink}/api/v2/publicDonors/updateAreaOrLastDonationDate`;
     console.log(updateInfo, url);
@@ -322,6 +323,21 @@ const ChangeAreaOrLastDonationDate = () => {
                 <option value={disName?.value}>{disName?.name}</option>
               ))}
             </select>
+          </div>
+
+          <div class="form-control w-full max-w-xs">
+            <label class="label">
+              <span class="label-text">এলাকা (Area) :</span>
+            </label>
+            <textarea
+              type="text"
+              required
+              //   defaultValue={data?.area}
+              placeholder="এলাকা (Area)"
+              name="area"
+              class="input input-bordered input-error w-full max-w-xs"
+            />
+            <label class="label"></label>
           </div>
 
           <div className="flex justify-center items-center py-3">
