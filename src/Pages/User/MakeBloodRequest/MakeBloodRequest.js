@@ -407,7 +407,7 @@ const MakeBloodRequest = () => {
                 required
                 class="select select-error w-full max-w-xs"
               >
-                <option disabled selected>
+                <option value="" disabled selected>
                   রক্তের গ্রুপ নির্বাচন করুন / Select Blood Group
                 </option>
                 <option value="A POSITIVE(+)">A+ (A POSITIVE)</option>

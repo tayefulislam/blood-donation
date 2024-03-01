@@ -392,7 +392,7 @@ const AddDonor = () => {
                   required
                   class="select select-error w-full max-w-xs"
                 >
-                  <option disabled selected>
+                  <option value="" disabled selected>
                     Select Blood Group
                   </option>
                   <option value="A POSITIVE(+)">A+ (A POSITIVE)</option>
@@ -461,7 +461,7 @@ const AddDonor = () => {
                   required
                   class="select select-error w-full max-w-xs"
                 >
-                  <option disabled selected>
+                  <option value="" disabled selected>
                     লিঙ্গ নির্বাচন করুন / Select Gender
                   </option>
                   <option value="male">পুরুষ - Male</option>
