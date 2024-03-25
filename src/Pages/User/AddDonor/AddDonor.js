@@ -66,6 +66,10 @@ const AddDonor = () => {
     },
     {
       name: "Gaibandha",
+      value: "Gaibandha",
+    },
+    {
+      name: "Gazipur",
       value: "Gazipur",
     },
     {

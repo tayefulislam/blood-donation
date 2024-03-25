@@ -66,6 +66,10 @@ const ChangeAreaOrLastDonationDate = () => {
     },
     {
       name: "Gaibandha",
+      value: "Gaibandha",
+    },
+    {
+      name: "Gazipur",
       value: "Gazipur",
     },
     {

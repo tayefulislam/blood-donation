@@ -65,6 +65,10 @@ const SelectArea_SearchDonorByGroupAndArea = () => {
     },
     {
       name: "Gaibandha",
+      value: "Gaibandha",
+    },
+    {
+      name: "Gazipur",
       value: "Gazipur",
     },
     {
